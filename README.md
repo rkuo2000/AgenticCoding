@@ -16,11 +16,10 @@ Powershell> `opencode -v`<br>
 
 ![](https://github.com/anomalyco/opencode/raw/dev/packages/web/src/assets/lander/screenshot.png)
 
-**OpenCode setup: Beginner’s Crash course** <br>
+<p>
 [![](https://markdown-videos-api.jorgenkh.no/youtube/8toBNmRDO90)](https://youtu.be/8toBNmRDO90)
-
-**OpenCode詳細攻略** <br>
 [![](https://markdown-videos-api.jorgenkh.no/youtube/JYVTUU9ClUA)](https://youtu.be/JYVTUU9ClUA)
+</p>
 
 ---
 ## Use-Cases

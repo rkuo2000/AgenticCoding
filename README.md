@@ -2,9 +2,6 @@
 
 ## Coder
 
-### [Claud-code](https://github.com/anthropics/claude-code)
-**Install**: `curl -fsSL https://claude.ai/install.sh | bash` <br>
-
 ### [OpenCode](https://github.com/anomalyco/opencode)
 For Linx, `curl -fsSL https://opencode.ai/install | bash` <br>
 For Windows, run [NodeJS .msi](https://nodejs.org/dist/v25.8.1/node-v25.8.1-x64.msi)<br>

@@ -1,6 +1,6 @@
 # Agentic Coding
 **Paper**: [Vibe Coding vs Agentic Coding](https://arxiv.org/html/2505.19443v1)<br>
-<img width="25%" height="25%" src="https://arxiv.org/html/2505.19443v1/x3.png">
+<img width="50%" height="50%" src="https://arxiv.org/html/2505.19443v1/x3.png">
 
 ## Coder
 

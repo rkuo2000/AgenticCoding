@@ -29,8 +29,7 @@ Powershell> `opencode -v`<br>
 ---
 ## Use-Cases
 
-### Depth-Camera `model`
-[Depth-Anything-V2](https://github.com/DepthAnything/Depth-Anything-V2)<br>
+### Depth-Camera  `model`
 ```
 use Depth-Anything-V2 to create a webcam app for depth image, and point-cloud image generation
 ```
@@ -41,7 +40,7 @@ use Depth-Anything-V2 to create a webcam app for depth image, and point-cloud im
 
 ---
 ### PMSM-Current-Control `mcp-server`
-永磁同步馬達之電流控制模擬 using MATLAB/OCTAVE-mcp-server<br>
+永磁同步馬達之電流控制模擬<br>
 ```
 create MATLAB mcp server for my current-control project use
 ```

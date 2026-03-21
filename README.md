@@ -129,9 +129,9 @@ opencode
 read ./floorplan_3_bedroom.webp, then draw the floorplan in freecad
 ```
 ##### floorplan_3_bedroom.webp
-![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/floorplan_3_bedroom.webp)
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/architect/floorplan_3_bedroom.webp)
 ##### freecad
-![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/freecad_floorplan_3_bedroom.png)
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/architect/freecad_floorplan_3_bedroom.png)
 
 ---
 #### Prompt
@@ -139,7 +139,7 @@ read ./floorplan_3_bedroom.webp, then draw the floorplan in freecad
 read ./Simple-House-Design.webp, then create the house in freecad
 ```
 #### Simple-House-Design.webp
-![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/Simple-House-Design.webp)
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/architect-cad/Simple-House-Design.webp)
 #### freecad
-![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/freecad_SimpleHouseDesign.png)
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/architect/freecad_SimpleHouseDesign.png)
 

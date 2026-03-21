@@ -45,7 +45,8 @@ use Depth-Anything-V2 to create a webcam app for depth image, and point-cloud im
 
 ---
 ### PMSM-Current-Control (永磁同步馬達之電流控制)
-`MATLAB/Octav mcp-server`<br>
+[MATLAB MCP-Core-Server](https://github.com/matlab/matlab-mcp-core-server)<br>
+
 
 **Prompt:**<br>
 ```

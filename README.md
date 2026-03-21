@@ -41,7 +41,7 @@ use Depth-Anything-V2 to create a webcam app for depth image, and point-cloud im
 
 `python main.py`<br>
 用電腦打開瀏覽器`localhost:7860`<br>
-![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/depth-camera.png)
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/depth-camera/depth-camera.png)
 
 ---
 ### PMSM-Current-Control (永磁同步馬達之電流控制)

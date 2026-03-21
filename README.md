@@ -59,6 +59,15 @@ create a PMSM current-control circuit, and call Matlab/Octave to simulate the ci
 
 ![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/pmsm-current-control.png)
 
+
+---
+### Navbot-CAD
+#### Prompt
+```
+study https://github.com/fuwei007/Navbot-EN01 to find its 3D CAD files, then create the robot in freecad
+```
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/navbot-cad/freecad_Navbot-EN01.png)
+
 ---
 ### Architect-CAD
 [FreeCAD MCP](https://github.com/neka-nat/freecad-mcp)<br>
@@ -134,10 +143,3 @@ read ./Simple-House-Design.webp, then create the house in freecad
 #### freecad
 ![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/freecad_SimpleHouseDesign.png)
 
----
-### Navbot-CAD
-#### Prompt
-```
-study https://github.com/fuwei007/Navbot-EN01 to find its 3D CAD files, then create the robot in freecad
-```
-![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/navbot-cad/freecad_Navbot-EN01.png)

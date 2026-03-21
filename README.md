@@ -60,5 +60,72 @@ create a PMSM current-control circuit, and call Matlab/Octave to simulate the ci
 ![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/pmsm-current-control.png)
 
 ---
+### Architect-CAD
+[FreeCAD MCP](https://github.com/neka-nat/freecad-mcp)<br>
+~/.config/opencode/opencode.json <br>
 
+```
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "ollama/nemotron-cascade-2:latest",
+  "provider": {
+    "ollama": {
+      "models": {
+        "nemotron-cascade-2:latest": {
+          "_launch": true,
+          "name": "Nemotron-Cascade-2"
+        }
+      },
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      }
+    }
+  },
+  "mcp": {
+    "freecad": {
+      "type": "local",
+      "command": [        
+        "uvx",
+        "freecad-mcp"
+      ]
+    }
+  }
+}
+```
 
+#### Terminal 1:
+```
+cd ~/AgenticCoding/architect-cad
+git clone https://github.com/neka-nat/freecad-mcp.git
+cd freecad-mcp
+cp -r addon/FreeCADMCP ~/snap/freecad/common/Mod/
+rm -rf freecad-mcp
+freecad
+```
+FreeCAD > View > Workbench > MCP Addon <br>
+`Start RCP Server`<br>
+
+#### Terminal 2:
+```
+cd ~/AgenticCoding/architect-cad
+opencode
+```
+/models `Gemini 3 Flash Preview`<br>
+
+---
+#### Prompt
+![floorplan_3_bedroom.webp](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/floorplan_3_bedroom.webp)
+```
+read ./floorplan_3_bedroom.webp, then draw the floorplan in freecad
+```
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/freecad_floorplan_3_bedroom.png)
+
+---
+#### Prompt
+![Simple-House-Design.webp](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/Simple-House-Design.webp)
+```
+read ./Simple-House-Design.webp, then create the house in freecad
+```
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/assets/freecad_SimpleHouseDesign.png)

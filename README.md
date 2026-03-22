@@ -158,10 +158,28 @@ File > New > Custom_Document : click [Create]
 ```
 Modern double-height luxury living room with floor-to-ceiling windows and city views. Large grey L-shaped sectional sofa, round coffee table, and light rug on hardwood floors. Tall tropical plants, abstract wall art, and minimalist lighting. Bright daylight with sharp shadows.
 ```
-![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/digital-art/interior_design.png)
+![](https://github.com/rkuo2000/AgenticCoding/blob/main/interior-design/interior_design.png?raw=true)
 
 ---
 ### Digital-Art (美女咒語)
 `Krita` `Z-Image Turbo`
 
-#### [美女咒語]()
+#### [美女咒語](https://github.com/rkuo2000/AgenticCoding/blob/main/digital-art/beauty_prompt.md)
+```
+Prompt:
+3:4豎版全身寫真:年輕亞洲女性，20歲，身材傲人(胸部豐滿高挺巨大:1.5)，(腰部纖細:1.5)，身高170CM，體型修長勻稱，一比一點五修長柔美雙腿，鵝蛋臉輪廓柔和，肌膚白皙透亮。
+深棕瞳孔大眼，自然淡妝配細長睫毛，鼻樑小巧唇形飽滿，淡玫瑰色水潤唇彩。烏黑柔亮長直發+空氣瀏海，部分髮絲垂至肩部，髮尾微捲。
+灰色V領吊帶長版背心，柔質面料勾勒優雅線條。同色高腰迷你包臀裙。腳穿暗灰色低跟涼鞋。
+1/4側身站立，含蓄微笑眼神溫柔。
+米色背景窗邊柔光，側逆光勾勒髮絲與臉頰高光。
+使用 28mm f/1.4 鏡頭，遠景拍攝全身入鏡，淺景深效果，電影感寫實主義。精緻皮膚紋理，8K超清畫質。溫暖低飽和色調，營造靜謐療癒氛圍。
+
+Negative Prompt:
+低飽和度、色彩單調、色調不協調、色調失和、模糊噪音、過度銳利化、塑膠質感、惡劣照明、燈光刺眼、卡通化風格、AI 感、
+背景過度模糊、背景過於清晰搶鏡、多人物 / 物件、場景凌亂、場景雜亂、人物擁擠、內容失序。
+形態比例：變形、誇張失真、臉部變形、形體失真、肢體比例錯誤、數量比例錯誤。
+肢體細節：多餘肢體、手指扭曲、姿勢僵硬。
+外觀質感：皮膚質感粗糙、服飾肌膚粗糙。
+毛髮表現：頭髮僵硬、頭髮毛躁、頭髮混亂。
+```
+![]()

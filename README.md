@@ -156,9 +156,9 @@ read ./Simple-House-Design.webp, then create the house in freecad
 #### Krita 設定
 `AI-diffusion python plugin`<br>
 Tools > Scripts > Import Python Plugin from File : [Download krita_ai_diffusion.zip](https://github.com/Acly/krita-ai-diffusion/releases)<br>
-Settings > Configure Krita > Python Plugin Manager : pick [AI Image Diffusion], click [OK]
-Restart Krita
-File > New > Custom_Document : click [Create]
+Settings > Configure Krita > Python Plugin Manager : pick [AI Image Diffusion], click [OK]<br>
+Restart Krita<br>
+File > New > Custom_Document : click [Create]<br>
 
 #### Prompt
 ```

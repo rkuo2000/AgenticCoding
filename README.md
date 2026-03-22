@@ -158,7 +158,7 @@ File > New > Custom_Document : click [Create]
 ```
 Modern double-height luxury living room with floor-to-ceiling windows and city views. Large grey L-shaped sectional sofa, round coffee table, and light rug on hardwood floors. Tall tropical plants, abstract wall art, and minimalist lighting. Bright daylight with sharp shadows.
 ```
-![](https://github.com/rkuo2000/AgenticCoding/blob/main/interior-design/interior_design.png?raw=true)
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/interior-design/interior_design.png)
 
 ---
 ### Digital-Art (美女咒語)
@@ -182,4 +182,4 @@ Negative Prompt:
 外觀質感：皮膚質感粗糙、服飾肌膚粗糙。
 毛髮表現：頭髮僵硬、頭髮毛躁、頭髮混亂。
 ```
-![]()
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/digital-art/digital_girl.png)

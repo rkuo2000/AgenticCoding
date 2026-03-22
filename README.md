@@ -184,3 +184,30 @@ Modern double-height luxury living room with floor-to-ceiling windows and city v
 使用 28mm f/1.4 鏡頭，遠景拍攝全身入鏡，淺景深效果，電影感寫實主義。精緻皮膚紋理，8K超清畫質。溫暖低飽和色調，營造靜謐療癒氛圍。
 ```
 ![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/digital-art/digital_girl.png)
+
+---
+### Blender-3D
+`Blender`
+
+[Blender download](https://www.blender.org/download/)<br>
+[Blender MCP](https://github.com/ahujasid/blender-mcp)<br>
+* Run Blender <br>
+Edit > Preference > Addons > Install from Disk..<br>
+import ~/AgenticCoding/blender-3d/blender-mcp/addon.py<br>
+press N, and click `Connect to MCP Server` <br>
+
+```
+cd ~/AgenticCoding/blender-3d
+opencode
+```
+/models Big Pickle `OpenCode Zen`<br>
+
+### prompt
+```
+create a Wall-E robot in 3D obj, then build it in blender
+```
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/blender-3d/blender_robot.png)
+
+
+
+

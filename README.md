@@ -149,7 +149,7 @@ read ./Simple-House-Design.webp, then create the house in freecad
 
 ---
 ### Interior-Design (室內設計)
-`Krita` `Z-Image Turbo`
+`Krita` `model: Z-Image Turbo`
 
 [Krita 下載](https://krita.org/zh-tw/download/)<br>
 
@@ -169,7 +169,7 @@ Modern double-height luxury living room with floor-to-ceiling windows and city v
 
 ---
 ### Digital-Art
-`Krita` `Z-Image Turbo`
+`Krita` `model: Z-Image Turbo`
 
 #### [美女咒語](https://github.com/rkuo2000/AgenticCoding/blob/main/digital-art/beauty_prompt.md)
 

@@ -32,7 +32,7 @@ Powershell> `opencode -v`<br>
 ## Use-Cases
 
 ### Depth-Camera (深度相機)
-`model: Depth-Anything-V2`<br>
+`模型:Depth-Anything-V2`<br>
 
 #### Prompt
 ```
@@ -45,8 +45,9 @@ use Depth-Anything-V2 to create a webcam app for depth image, and point-cloud im
 
 ---
 ### PMSM-Current-Control (永磁同步馬達之電流控制)
-[MATLAB MCP-Core-Server](https://github.com/matlab/matlab-mcp-core-server)<br>
+`MATLAB/Octave`<br>
 
+[MATLAB MCP-Core-Server](https://github.com/matlab/matlab-mcp-core-server)<br>
 
 #### Prompt
 ```
@@ -149,7 +150,7 @@ read ./Simple-House-Design.webp, then create the house in freecad
 
 ---
 ### Interior-Design (室內設計)
-`Krita` `model: Z-Image Turbo`
+`Krita` `模型:Z-Image Turbo`
 
 [Krita 下載](https://krita.org/zh-tw/download/)<br>
 
@@ -169,7 +170,7 @@ Modern double-height luxury living room with floor-to-ceiling windows and city v
 
 ---
 ### Digital-Art
-`Krita` `model: Z-Image Turbo`
+`Krita` `模型:Z-Image Turbo`
 
 #### [美女咒語](https://github.com/rkuo2000/AgenticCoding/blob/main/digital-art/beauty_prompt.md)
 

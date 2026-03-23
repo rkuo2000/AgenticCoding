@@ -1,4 +1,4 @@
-## Architect-CAD (建築設計）
+## Architect CAD (建築設計）
 `FreeCAD`<br>
 
 [FreeCAD MCP](https://github.com/neka-nat/freecad-mcp)<br>

@@ -1,4 +1,4 @@
-## Interior-Design (室內設計)
+## Interior Design (室內設計)
 `Krita` `Zit`<br>
 <br>
 模型: Z-Image Turbo<br>

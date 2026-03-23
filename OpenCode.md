@@ -61,7 +61,7 @@ Powershell> `opencode -v`<br>
 }
 ```
 
-<p>
-[![](https://markdown-videos-api.jorgenkh.no/youtube/8toBNmRDO90)](https://youtu.be/8toBNmRDO90)
-[![](https://markdown-videos-api.jorgenkh.no/youtube/JYVTUU9ClUA)](https://youtu.be/JYVTUU9ClUA)
-</p>
+---
+### 教學影片
+* [OpenCode setup: Beginner’s Crash course](https://www.youtube.com/watch?v=8toBNmRDO90)
+* [OpenCode详细攻略](https://www.youtube.com/watch?v=JYVTUU9ClUA)

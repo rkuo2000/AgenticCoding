@@ -1,4 +1,6 @@
 ## [OpenCode](https://github.com/anomalyco/opencode)
+
+### Install
 For Linux, `curl -fsSL https://opencode.ai/install | bash` <br>
 
 For Windows, run [NodeJS .msi](https://nodejs.org/dist/v25.8.1/node-v25.8.1-x64.msi)<br>
@@ -16,6 +18,48 @@ Powershell> `opencode -v`<br>
 ```
 
 ![](https://github.com/anomalyco/opencode/raw/dev/packages/web/src/assets/lander/screenshot.png)
+
+---
+### Configuration
+
+`~/.config/opencode/opencode.json`<br>
+```
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "ollama/nemotron-cascade-2:latest",
+  "provider": {
+    "ollama": {
+      "models": {
+        "nemotron-cascade-2:latest": {
+          "_launch": true,
+          "name": "Nemotron-Cascade-2"
+        }
+      },
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      }
+    }
+  },
+  "mcp": {
+    "freecad": {
+      "type": "local",
+      "command": [        
+        "uvx",
+        "freecad-mcp"
+      ]
+    },
+    "blender": {
+      "type": "local",
+      "command": [        
+        "uvx",
+        "blender-mcp"
+      ]
+    }
+  }
+}
+```
 
 <p>
 <iframe width="320" height="240" src="https://www.youtube.com/embed/8toBNmRDO90" title="OpenCode setup: Beginner’s Crash course" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

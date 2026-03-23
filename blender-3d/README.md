@@ -16,7 +16,7 @@ press N, and click `Connect to MCP Server` <br>
 cd ~/AgenticCoding/blender-3d
 opencode
 ```
-/models Big Pickle `OpenCode Zen`<br>
+/models `Big Pickle` `OpenCode Zen`<br>
 
 #### prompt
 ```

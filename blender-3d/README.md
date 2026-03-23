@@ -1,4 +1,4 @@
-## Blender-3D (3D模型)
+## Blender 3D (3D模型)
 `Blender`<br>
 <br>
 [Blender download](https://www.blender.org/download/)<br>

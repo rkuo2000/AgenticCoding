@@ -1,4 +1,4 @@
-## Depth-Camera (深度相機)
+## Depth Camera (深度相機)
 `model`<br>
 <br>
 [Depth-Anything 2](https://github.com/DepthAnything/Depth-Anything-V2)<br>

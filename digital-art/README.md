@@ -1,4 +1,4 @@
-## Digital-Art（數位藝術）
+## Digital Art（數位藝術）
 `Krita` `Zit`<br>
 <br>
 模型: Z-Image Turbo<br>

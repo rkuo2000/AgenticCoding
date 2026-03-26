@@ -14,5 +14,5 @@ create MATLAB mcp server for my current-control project use
 create a PMSM current-control circuit, and call Matlab/Octave to simulate the circuit to provide result
 ```
 
-![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/pmsm-current-control/result.png)
+![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/pmsm-sim/result.png)
 

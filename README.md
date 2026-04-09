@@ -4,7 +4,7 @@
 
 ## Coder
 
-### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/README.md)
+### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md)
 
 ---
 ## Use-Cases

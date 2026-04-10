@@ -54,8 +54,15 @@
 [BlenderMCP](https://github.com/ahujasid/blender-mcp)<br>
 
 ---
-### [Unity-Gym (3D遊戲)](https://github.com/rkuo2000/AgenticCoding/blob/main/unity-gym/README.md)
+### [Unity-Gym (3D場景)](https://github.com/rkuo2000/AgenticCoding/blob/main/unity-gym/README.md)
 `Unity`<br>
 
 [Unity-Hub 下載](https://unity.com/download)<br>
 [MCP for Unity](https://github.com/CoplayDev/unity-mcp)<br>
+
+---
+### [GoDot-Game (2D遊戲)](https://github.com/rkuo2000/AgenticCoding/blob/main/godot-game/README.md)
+`GoDot`<br>
+
+[GoDot 下載](https://godotengine.org/download/)<br>
+[GoDot MCP](https://github.com/Coding-Solo/godot-mcp)<br>

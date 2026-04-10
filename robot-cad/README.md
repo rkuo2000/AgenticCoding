@@ -1,6 +1,9 @@
 ## Robot CAD (機器人設計)
 `FreeCAD`<br>
-<br>
+
+[FreeCAD 下載](https://www.freecad.org/downloads.php)<br>
+[FreeCAD MCP](https://github.com/neka-nat/freecad-mcp)<br>
+
 ### OpenCode
 
 #### Prompt

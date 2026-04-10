@@ -1,6 +1,7 @@
 ## Architect CAD (建築設計）
 `FreeCAD`<br>
 
+[FreeCAD 下載](https://www.freecad.org/downloads.php)<br>
 [FreeCAD MCP](https://github.com/neka-nat/freecad-mcp)<br>
 
 ### Terminal 1:

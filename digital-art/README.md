@@ -3,6 +3,9 @@
 <br>
 模型: Z-Image Turbo<br>
 
+[Krita 下載](https://krita.org/zh-tw/download/)<br>
+[Krita AI-diffusion 插件](https://github.com/Acly/krita-ai-diffusion) [plugin 安裝](https://docs.interstice.cloud/installation/) <br>
+
 ### OpenCode
 
 #### prompt

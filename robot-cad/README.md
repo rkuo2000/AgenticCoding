@@ -4,7 +4,7 @@
 [FreeCAD 下載](https://www.freecad.org/downloads.php)<br>
 [FreeCAD MCP](https://github.com/neka-nat/freecad-mcp)<br>
 
-#### Terminal 1:
+### FreeCAD & MCP 安裝
 ```
 cd ~/AgenticCoding/architect-cad
 git clone https://github.com/neka-nat/freecad-mcp.git
@@ -16,6 +16,7 @@ freecad
 FreeCAD > View > Workbench > MCP Addon <br>
 `Start RCP Server`<br>
 
+---
 ### OpenCode
 
 #### Prompt

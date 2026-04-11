@@ -5,9 +5,7 @@
 For Linux,<br>
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
-
 \. "$HOME/.nvm/nvm.sh"
-
 nvm install 25
 ```
 
@@ -23,6 +21,7 @@ Powershell> `node -v`
 Powershell> `npm -v`
 ```
 
+---
 ### Install OpenCode
 For Linux, `curl -fsSL https://opencode.ai/install | bash` <br>
 For Windows, <br>

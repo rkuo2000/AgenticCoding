@@ -13,12 +13,12 @@ For Windows, <br>
 Download [NodeJS .msi](https://nodejs.org/dist/v25.9.0/node-v25.9.0-x64.msi)<br>
 Open Powershell with adminstrator(管理員權限)<br>
 ```
-Powershell> `Set-ExecutionPolicy RemoteSigned`
+Powershell> Set-ExecutionPolicy RemoteSigned
 ```
 run NodeJS.msi<br>
 ```
-Powershell> `node -v`
-Powershell> `npm -v`
+Powershell> node -v
+Powershell> npm -v
 ```
 
 ---

@@ -1,17 +1,31 @@
 ## [OpenCode](https://github.com/anomalyco/opencode)
 
-### Install
-For Linux, `curl -fsSL https://opencode.ai/install | bash` <br>
+### Install NodeJS
+[Download NodeJS](https://nodejs.org/en/download/current)<br>
+For Linux,<br>
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 
-For Windows, run [NodeJS .msi](https://nodejs.org/dist/v25.8.1/node-v25.8.1-x64.msi)<br>
+\. "$HOME/.nvm/nvm.sh"
+
+nvm install 25
+```
+
+For Windows, <br>
+Download [NodeJS .msi](https://nodejs.org/dist/v25.9.0/node-v25.9.0-x64.msi)<br>
 Open Powershell with adminstrator(管理員權限)<br>
+```
+Powershell> `Set-ExecutionPolicy RemoteSigned`
+```
+run NodeJS.msi<br>
 ```
 Powershell> `node -v`
 Powershell> `npm -v`
 ```
-```
-Powershell> `Set-ExecutionPolicy RemoteSigned`
-```
+
+### Install OpenCode
+For Linux, `curl -fsSL https://opencode.ai/install | bash` <br>
+For Windows, <br>
 ```
 Powershell> `npm i -g opencode-ai@latest`
 Powershell> `opencode -v`<br>

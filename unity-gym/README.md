@@ -20,7 +20,7 @@ opencode
 
 #### prompt
 ```
-create a grass terrian
+Create a red, blue and yellow cube
 ```
 ![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/unity-gym/unity-gym.png)
 

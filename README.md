@@ -17,7 +17,7 @@
 
 ### [AntiGravity](https://antigravity.google/) - Google Agentic Development Platform
 
-### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md) - Coding Agent
+### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md) - AI Coding Agent
 
 ### [OpenClaw](https://github.com/openclaw/openclaw) - Personal AI Assistant
 

@@ -9,13 +9,13 @@
 <img width="50%" height="50%" src="https://arxiv.org/html/2505.19443v1/x3.png">
 
 ---
-## Agent IDEs
+## Agentic IDEs
 
-### [Claude](https://openai.com/zh-Hant/codex/)
+### [Claude](https://openai.com/zh-Hant/codex/) - Anthropic AI Coding IDE
 
-### [Codex](https://openai.com/zh-Hant/codex/)
+### [Codex](https://openai.com/zh-Hant/codex/) - OpenAI AI Coding Partner
 
-### [AntiGravity](https://antigravity.google/)
+### [AntiGravity](https://antigravity.google/) - Google Agentic Development Platform
 
 ### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md) - Coding Agent
 

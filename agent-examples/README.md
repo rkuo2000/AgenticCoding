@@ -26,13 +26,11 @@ rtk init --agent hermes         # Hermes
 study https://github.com/microsoft/webwright and install WebWright skill
 ```
 
----
 #### Prompt: *use WebWright skill*
 ```
 WebWright search NBA games and results
 ```
 
----
 #### Prompt: *use WebWright skill*
 ```
 WebWright search Google Flight to find a ticket from SEA to JFK on 2026/8/15

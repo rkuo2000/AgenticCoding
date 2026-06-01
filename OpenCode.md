@@ -34,45 +34,8 @@ Powershell> `opencode -v`<br>
 
 ---
 ### Configuration
+~/.config/opencode/[opencode.json](https://github.com/rkuo2000/AgenticCoding/blob/main/opencode.json)<br>
 
-`~/.config/opencode/opencode.json`<br>
-```
-{
-  "$schema": "https://opencode.ai/config.json",
-  "model": "ollama/gemma4:latest",
-  "provider": {
-    "ollama": {
-      "models": {
-        "gemma4:latest": {
-          "_launch": true,
-          "name": "Gemma4"
-        }
-      },
-      "name": "Ollama (local)",
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
-        "baseURL": "http://127.0.0.1:11434/v1"
-      }
-    }
-  },
-  "mcp": {
-    "freecad": {
-      "type": "local",
-      "command": [        
-        "uvx",
-        "freecad-mcp"
-      ]
-    },
-    "blender": {
-      "type": "local",
-      "command": [        
-        "uvx",
-        "blender-mcp"
-      ]
-    }
-  }
-}
-```
 
 ---
 ### 教學影片

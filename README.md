@@ -11,7 +11,7 @@
 ---
 ## AI Engineering
 * 第一代：Prompt Engineering（2022-2024）
-* 第二代：[Context Engineering](https://ikala.ai/zh-tw/blog/ikala-ai-insight/introduction-to-context-engineering-ai-agent-vs-prompt-engineering/)（2025）
+* 第二代：[Context Engineering](https://ihower.tw/blog/12817-context-engineering)（2025）
 * 第三代：[Harness Engineering](https://hackmd.io/@BASHCAT/SkQEW0F2bg)（2026）
 
 #### Anthropic Claude Code：三代理 Harness 架構

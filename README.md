@@ -21,6 +21,8 @@
 | Generator	| 生成者	| 一次實作一個 feature，保持增量開發 |
 | Evaluator	| 評估者	| 驗證生成結果，回饋修正指令         |
 
+[![](https://markdown-videos-api.jorgenkh.no/youtube/R6fZR_9kmIw)](https://youtu.be/R6fZR_9kmIw)
+
 ---
 ## Agentic IDEs
 

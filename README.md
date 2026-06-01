@@ -1,10 +1,29 @@
 # Agentic Coding
+
+## Overview
+* [AI-brief](https://rkuo2000.github.io/AI-course/lecture/2025/09/01/AI-Brief.html)
+* [AI-Hardwares](https://rkuo2000.github.io/AI-course/lecture/2025/09/01/AI-Hardwares.html)
+* [Agent-intro](https://rkuo2000.github.io/AI-course/lecture/2025/09/15/Agent.html)
+  
 **Paper**: [Vibe Coding vs Agentic Coding](https://arxiv.org/html/2505.19443v1)<br>
 <img width="50%" height="50%" src="https://arxiv.org/html/2505.19443v1/x3.png">
 
-## Coder
+---
+## Agent IDEs
 
-### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md)
+### [Claude](https://openai.com/zh-Hant/codex/)
+
+### [Codex](https://openai.com/zh-Hant/codex/)
+
+### [AntiGravity](https://antigravity.google/)
+
+### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md) - Coding Agent
+
+### [OpenClaw](https://github.com/openclaw/openclaw) - Personal AI Assistant
+
+### [Hermes-Agent](https://github.com/nousresearch/hermes-agent) - AI Agent
+
+### [OpenFang](https://github.com/RightNow-AI/openfang) - Agent OS
 
 ---
 ## Use-Cases

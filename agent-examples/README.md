@@ -45,3 +45,10 @@ Create a gif of NVIDIA-green-dots on black scatter, form Taipei 101 building, mo
 #### [generate_gtc_gif.py](https://github.com/rkuo2000/AgenticCoding/blob/main/agent-examples/generate_gtc_gif.py) by Ollama-local *Gemma4-31b-ctx64*
 ![](https://github.com/rkuo2000/AgenticCoding/blob/main/agent-examples/nvidia_gtc.gif?raw=true)
 
+---
+### ASR Transcribe
+`cd ~/GenAI/ASR`<br>
+#### Prompt:
+```
+use asr_whisper.py to transcribe ~/Downloads/AI-Ascent-2026.mp3 and write a summary to summary.md
+```

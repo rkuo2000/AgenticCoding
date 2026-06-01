@@ -9,9 +9,22 @@
 <img width="50%" height="50%" src="https://arxiv.org/html/2505.19443v1/x3.png">
 
 ---
+## AI Engineering
+* 第一代：Prompt Engineering（2022-2024）
+* 第二代：[Context Engineering](https://ikala.ai/zh-tw/blog/ikala-ai-insight/introduction-to-context-engineering-ai-agent-vs-prompt-engineering/)（2025）
+* 第三代：[Harness Engineering](https://hackmd.io/@BASHCAT/SkQEW0F2bg)（2026）
+
+#### Anthropic Claude Code：三代理 Harness 架構
+| Agent	    | 角色   |	 職責                          |
+|-----------|-------|--------------------------------|
+| Planner	  | 規劃者 |	把產品規格分解為可執行的任務列表    |
+| Generator	| 生成者	| 一次實作一個 feature，保持增量開發 |
+| Evaluator	| 評估者	| 驗證生成結果，回饋修正指令         |
+
+---
 ## Agentic IDEs
 
-### [Claude](https://openai.com/zh-Hant/codex/) - Anthropic AI Coding IDE
+### [Claude](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
 
 ### [Codex](https://openai.com/zh-Hant/codex/) - OpenAI AI Coding Partner
 

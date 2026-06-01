@@ -41,7 +41,7 @@
 ---
 ## Use-Cases
 
-### [AgentCoding examples](https://github.com/rkuo2000/AgenticCoding/blob/main/agent-examples/READM.md)
+### [AgentCoding examples](https://github.com/rkuo2000/AgenticCoding/blob/main/agent-examples)
 
 ---
 ### [Depth-Camera (深度相機)](https://github.com/rkuo2000/AgenticCoding/blob/main/depth-camera/README.md)

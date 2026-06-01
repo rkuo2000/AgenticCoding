@@ -20,7 +20,7 @@ rtk init --agent hermes         # Hermes
 ---
 ## Add Skills
 
-### WebWright 
+### WebWright (web search)
 #### Prompt: *add WebWright skill*
 ```
 study https://github.com/microsoft/webwright and install WebWright skill

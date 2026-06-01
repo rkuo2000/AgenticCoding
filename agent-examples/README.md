@@ -1,7 +1,6 @@
 ## AgentCoding Examples
 
-### [rtk](https://github.com/rtk-ai/rtk) (reduce tokens) 
-`plugins`<br>
+### [rtk](https://github.com/rtk-ai/rtk) (reduce tokens) `plugins`
 
 `curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh`<br>
 ```
@@ -19,8 +18,7 @@ rtk init --agent hermes         # Hermes
 ```
 
 ---
-### WebWright (web search)
-`skills`<br>
+### WebWright (web search) `skills`
 
 #### Prompt: *add WebWright skill*
 ```

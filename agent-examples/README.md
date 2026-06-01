@@ -1,7 +1,8 @@
-# AgentCoding Examples
+## AgentCoding Examples
 
-## Add Plugins
-### [rtk](https://github.com/rtk-ai/rtk) (reduce tokens)
+### [rtk](https://github.com/rtk-ai/rtk) (reduce tokens) 
+`plugins`<br>
+
 `curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh`<br>
 ```
 rtk init -g                     # Claude Code / Copilot (default)
@@ -18,9 +19,9 @@ rtk init --agent hermes         # Hermes
 ```
 
 ---
-## Add Skills
-
 ### WebWright (web search)
+`skills`<br>
+
 #### Prompt: *add WebWright skill*
 ```
 study https://github.com/microsoft/webwright and install WebWright skill

@@ -47,7 +47,9 @@ Create a gif of NVIDIA-green-dots on black scatter, form Taipei 101 building, mo
 
 ---
 ### ASR Transcribe
-`cd ~/GenAI/ASR`<br>
+download [asr_whisper.py](https://github.com/rkuo2000/GenAI/blob/main/ASR/asr_whisper.py)<br>
+`pip install git+https://github.com/openai/whisper.git`<br>
+
 #### Prompt:
 ```
 use asr_whisper.py to transcribe ~/Downloads/AI-Ascent-2026.mp3 and write a summary to summary.md

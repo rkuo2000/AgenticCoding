@@ -1,15 +1,22 @@
 ## AgentCoding Examples
 
-### Search Flight
+### Web Search
 
-#### Prompt: `add WebWright skill`
+#### Prompt: *add WebWright skill*
 ```
 study https://github.com/microsoft/webwright and install WebWright skill
 ```
 
-#### Prompt: `use WebWright skill`
+---
+#### Prompt: *use WebWright skill*
 ```
-search Google Flight to find a ticket from SEA to JFK on 2026/8/15
+WebWright search NBA games and results
+```
+
+---
+#### Prompt: *use WebWright skill*
+```
+WebWright search Google Flight to find a ticket from SEA to JFK on 2026/8/15
 ```
 
 ---

@@ -24,7 +24,7 @@
 ---
 ## Agentic IDEs
 
-### [Claude](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
+### [Claude-Code](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
 
 ### [Codex](https://openai.com/zh-Hant/codex/) - OpenAI AI Coding Partner
 

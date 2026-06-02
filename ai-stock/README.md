@@ -9,4 +9,5 @@
 
 Open your browser to `http://localhost:5000`<br>
 
-![]()
+![](https://github.com/rkuo2000/AgenticCoding/blob/main/ai-stock/app-ai_stock1.png?raw=true)
+![](https://github.com/rkuo2000/AgenticCoding/blob/main/ai-stock/app-ai_stock2.png?raw=true)

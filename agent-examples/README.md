@@ -47,10 +47,12 @@ Create a gif of NVIDIA-green-dots on black scatter, form Taipei 101 building, mo
 
 ---
 ### ASR Transcribe
-download [asr_whisper.py](https://github.com/rkuo2000/GenAI/blob/main/ASR/asr_whisper.py)<br>
+`pip3 install yt-dlp`<br>
+`yt-dlp -x --audio-format mp3 "https://www.youtube.com/watch?v=AFpeWo1GTeg" -o AI-Ascent-2026.mp3`<br>
 `pip install git+https://github.com/openai/whisper.git`<br>
+download [asr_whisper.py](https://github.com/rkuo2000/GenAI/blob/main/ASR/asr_whisper.py)<br>
 
 #### Prompt:
 ```
-use asr_whisper.py to transcribe ~/Downloads/AI-Ascent-2026.mp3 and write a summary to summary.md
+use asr_whisper.py to transcribe AI-Ascent-2026.mp3 and write a summary to summary.md
 ```

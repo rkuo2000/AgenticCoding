@@ -24,7 +24,7 @@ rtk init --agent hermes         # Hermes
 
 ---
 ### [WebWright](https://github.com/microsoft/webwright) (web search) `skills`
-Copy [webwright](https://github.com/microsoft/Webwright/tree/main/skills/webwright) to *~/.opencode/skills* <br>
+Copy *[webwright](https://github.com/microsoft/Webwright/tree/main/skills/webwright)* to *~/.opencode/skills* <br>
 
 #### Prompt: *use WebWright skill*
 ```

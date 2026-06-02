@@ -46,6 +46,9 @@
 ### [AgentCoding examples](https://github.com/rkuo2000/AgenticCoding/blob/main/agent-examples)
 
 ---
+### [AI Stock 台灣股票分析師](https://github.com/rkuo2000/AgenticCoding/blob/main/ai-stock)
+
+---
 ### [Depth-Camera (深度相機)](https://github.com/rkuo2000/AgenticCoding/blob/main/depth-camera/README.md)
 `模型:Depth-Anything-V2`<br>
 

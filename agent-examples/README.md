@@ -18,12 +18,13 @@ rtk init --agent hermes         # Hermes
 ```
 
 ---
-### WebWright (web search) `skills`
+### UI/UX Pro Max `skills`
+`npm install -g uipro-cli`<br>
+`uipro init --ai opencode`<br>
 
-#### Prompt: *add WebWright skill*
-```
-study https://github.com/microsoft/webwright and install WebWright skill
-```
+---
+### [WebWright](https://github.com/microsoft/webwright) (web search) `skills`
+Copy [webwright](https://github.com/microsoft/Webwright/tree/main/skills/webwright) to *~/.opencode/skills* <br>
 
 #### Prompt: *use WebWright skill*
 ```

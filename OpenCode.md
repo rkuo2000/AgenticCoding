@@ -1,15 +1,23 @@
 ## [OpenCode](https://github.com/anomalyco/opencode)
+`cd ~`<br>
 
-### Install NodeJS
-[Download NodeJS](https://nodejs.org/en/download/current)<br>
-For Linux,<br>
+### Linux
+#### install NodeJS
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
 nvm install 25
+
+node -v
+npm -v
+```
+#### install OpenCode
+```
+curl -fsSL https://opencode.ai/install | bash
 ```
 
-For Windows, <br>
+---
+### Windows
 Download [NodeJS .msi](https://nodejs.org/dist/v25.9.0/node-v25.9.0-x64.msi)<br>
 Open Powershell with adminstrator(管理員權限)<br>
 ```
@@ -21,20 +29,23 @@ Powershell> node -v
 Powershell> npm -v
 ```
 
----
-### Install OpenCode
-For Linux, `curl -fsSL https://opencode.ai/install | bash` <br>
-For Windows, <br>
+#### install opencode
 ```
 Powershell> `npm i -g opencode-ai@latest`
 Powershell> `opencode -v`<br>
 ```
 
+---
+### to project directory
+```
+cd AgenticCoding
+opencode web
+```
 ![](https://github.com/anomalyco/opencode/raw/dev/packages/web/src/assets/lander/screenshot.png)
 
----
-### Configuration
-~/.config/opencode/[opencode.json](https://github.com/rkuo2000/AgenticCoding/blob/main/opencode.json)<br>
+
+#### configuration
+[~/.opencode/[opencode.json](https://github.com/rkuo2000/AgenticCoding/blob/main/opencode.json)<br>
 ```
 {
   "$schema": "https://opencode.ai/config.json",

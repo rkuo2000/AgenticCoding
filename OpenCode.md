@@ -41,8 +41,6 @@ Powershell> `opencode -v`<br>
 cd AgenticCoding
 opencode web
 ```
-![](https://github.com/anomalyco/opencode/raw/dev/packages/web/src/assets/lander/screenshot.png)
-
 
 #### configuration
 [~/.opencode/[opencode.json](https://github.com/rkuo2000/AgenticCoding/blob/main/opencode.json)<br>

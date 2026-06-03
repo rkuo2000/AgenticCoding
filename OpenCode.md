@@ -31,8 +31,8 @@ Powershell> npm -v
 
 #### install opencode
 ```
-Powershell> `npm i -g opencode-ai@latest`
-Powershell> `opencode -v`<br>
+Powershell> npm i -g opencode-ai@latest
+Powershell> opencode -v
 ```
 
 ---

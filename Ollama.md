@@ -62,4 +62,5 @@ ollama run gemm4-e2b-128k
 ollama ps
 ```
 | NAME | ID | SIZE | PROCESSOR | CONTEXT | UNTIL |<br>
+|------------------------|--------------|-------|----------|--------|--------------------|<br>
 | gemma4-e2b-128k:latest | 63f9752e8204 | 2.2GB | 100% GPU | 131072 | 4 minutes from now |<br>

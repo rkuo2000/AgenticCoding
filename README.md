@@ -24,6 +24,13 @@
 [![](https://markdown-videos-api.jorgenkh.no/youtube/R6fZR_9kmIw)](https://youtu.be/R6fZR_9kmIw)
 
 ---
+## Local LLMs
+
+### [Ollama](https://github.com/rkuo2000/AgenticCoding/blob/main/Ollama.md)
+
+### [LM Studio](https://github.com/rkuo2000/AgenticCoding/blob/main/LMstudio.md)
+
+---
 ## Agentic IDEs
 
 ### [Claude-Code](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE

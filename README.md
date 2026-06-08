@@ -26,9 +26,9 @@
 ---
 ## Local LLMs
 
-### [Ollama](https://github.com/rkuo2000/AgenticCoding/blob/main/Ollama.md)
+### [Ollama](https://github.com/rkuo2000/AgenticCoding/blob/main/Ollama.md) [library](https://ollama.com/library)
 
-### [LM Studio](https://github.com/rkuo2000/AgenticCoding/blob/main/LMstudio.md)
+### [LM Studio](https://github.com/rkuo2000/AgenticCoding/blob/main/LMstudio.md) [models](https://lmstudio.ai/models)
 
 ---
 ## Agentic IDEs

@@ -26,17 +26,17 @@
 ---
 ## Local LLMs
 
-### [Ollama](https://github.com/rkuo2000/AgenticCoding/blob/main/Ollama.md) - [(library)](https://ollama.com/library)
+### [Ollama](https://github.com/rkuo2000/AgenticCoding/blob/main/Ollama.md) ~ [(library)](https://ollama.com/library)
 `ollama launch claude`<br>
 
-### [LM Studio](https://github.com/rkuo2000/AgenticCoding/blob/main/LMstudio.md) - [(models)](https://lmstudio.ai/models)
+### [LM Studio](https://github.com/rkuo2000/AgenticCoding/blob/main/LMstudio.md) ~ [(models)](https://lmstudio.ai/models)
 
 ---
 ## Agentic IDEs
 
 ### [Claude-Code](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
 
-### [Codex](https://openai.com/zh-Hant/codex/) - OpenAI AI Coding Partner
+### [Codex](https://github.com/openai/codex) - OpenAI AI Coding Partner
 
 ### [AntiGravity](https://antigravity.google/) - Google Agentic Development Platform
 

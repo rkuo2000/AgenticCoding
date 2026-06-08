@@ -110,7 +110,7 @@
 [GoDot MCP](https://github.com/Coding-Solo/godot-mcp)<br>
 
 ---
-## AI Assistants / Agents
+## AI Assistant
 
 ### [OpenClaw](https://github.com/openclaw/openclaw) - Personal AI Assistant
 
@@ -122,6 +122,9 @@ cd Open-LLM-VTuber
 uv sync
 uv run --active run_server.py
 ```
+
+---
+## AI Agents
 
 ### [Hermes-Agent](https://github.com/nousresearch/hermes-agent) - AI Agents
 

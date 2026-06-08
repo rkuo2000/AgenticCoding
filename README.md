@@ -27,6 +27,7 @@
 ## Local LLMs
 
 ### [Ollama](https://github.com/rkuo2000/AgenticCoding/blob/main/Ollama.md) - [(library)](https://ollama.com/library)
+`ollama launch claude`<br>
 
 ### [LM Studio](https://github.com/rkuo2000/AgenticCoding/blob/main/LMstudio.md) - [(models)](https://lmstudio.ai/models)
 

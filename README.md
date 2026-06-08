@@ -42,12 +42,6 @@
 
 ### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md) - AI Coding Agent
 
-### [OpenClaw](https://github.com/openclaw/openclaw) - Personal AI Assistant
-
-### [Hermes-Agent](https://github.com/nousresearch/hermes-agent) - AI Agent
-
-### [OpenFang](https://github.com/RightNow-AI/openfang) - Agent OS
-
 ---
 ## Use-Cases
 
@@ -114,3 +108,22 @@
 
 [GoDot 下載](https://godotengine.org/download/)<br>
 [GoDot MCP](https://github.com/Coding-Solo/godot-mcp)<br>
+
+---
+## AI Assistants / Agents
+
+### [OpenClaw](https://github.com/openclaw/openclaw) - Personal AI Assistant
+
+### [Open-LLM-VTuber](https://github.com/Open-LLM-VTuber/Open-LLM-VTuber) - VTuber AI Assistant
+```
+python -m venv .venv
+git clone https://github.com/Open-LLM-VTuber/Open-LLM-VTuber
+cd Open-LLM-VTuber
+uv sync
+uv run --active run_server.py
+```
+
+### [Hermes-Agent](https://github.com/nousresearch/hermes-agent) - AI Agents
+
+### [OpenFang](https://github.com/RightNow-AI/openfang) - Agent OS
+

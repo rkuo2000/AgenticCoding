@@ -34,18 +34,18 @@
 ---
 ## Agentic IDEs
 
+### [Claude-Code](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
+
+### [Codex](https://github.com/openai/codex) - OpenAI AI Coding Partner
+
+### [AntiGravity](https://antigravity.google/) - Google Agentic Development Platform
+
 ### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md) - AI Coding Agent
 ```
 npm i -g opencode-ai@latest
 ```
 
 `ollama launch opencode`<br>
-
-### [Claude-Code](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
-
-### [Codex](https://github.com/openai/codex) - OpenAI AI Coding Partner
-
-### [AntiGravity](https://antigravity.google/) - Google Agentic Development Platform
 
 ---
 ## Use-Cases

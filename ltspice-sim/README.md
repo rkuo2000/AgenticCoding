@@ -6,7 +6,7 @@
 
 ### [LTspice-MCP 安裝](https://github.com/Cognitohazard/ltspice-mcp)
 `cd ~/AgenticCodiing/ltspice-sim`<br>
-                                   >
+
 #### Prompt:
 ```
 study https://github.com/Cognitohazard/ltspice-mcp and install ltspice-mcp server

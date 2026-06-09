@@ -28,7 +28,7 @@ v 11.12.1
 4. `openclaw gateway restart`
 5. open browser `http://127.0.0.1:18789`
 
-[.openclaw/openclaw.json](https://github.com/rkuo2000/GenAI/blob/main/Agent/openclaw.json)<br>
+[.openclaw/openclaw.json](https://github.com/rkuo2000/AgenticCoding/blob/main/openclaw.json)<br>
 
 ---
 #### setup Ollama

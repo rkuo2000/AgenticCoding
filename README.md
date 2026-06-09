@@ -165,4 +165,9 @@ hermes
 
 
 ### [OpenFang](https://github.com/RightNow-AI/openfang) - Agent OS
-
+```
+curl -fsSL https://openfang.sh/install | sh
+openfang init
+openfang start
+# Dashboard live at http://localhost:4200
+```

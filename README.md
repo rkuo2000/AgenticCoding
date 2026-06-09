@@ -35,6 +35,11 @@
 ## Agentic IDEs
 
 ### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md) - AI Coding Agent
+```
+npm i -g opencode-ai@latest
+```
+
+`ollama launch opencode`<br>
 
 ### [Claude-Code](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
 
@@ -119,10 +124,16 @@
 ### [OpenClaw](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenClaw.md) - Personal AI Assistant
 ```
 sudo npm install -g openclaw@latest
-
-openclaw onboard --install-daemon
-openclaw dashboard
 ```
+```
+openclaw onboard --install-daemon
+```
+```
+openclaw dashboard
+openclaw
+```
+
+`ollama launch openclaw --model gemma4:e2b`<br>
 
 ### [Open-LLM-VTuber](https://github.com/Open-LLM-VTuber/Open-LLM-VTuber) - VTuber AI Assistant
 ```
@@ -137,6 +148,21 @@ uv run --active run_server.py
 ## AI Agents
 
 ### [Hermes-Agent](https://github.com/nousresearch/hermes-agent) - AI Agents
+```
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+```
+```
+hermes setup
+```
+```
+hermes dashboard
+hermes-desktop
+hermes
+```
+
+`ollama launch hermes`<br>
+`ollama launch hermes-desktop --model gemma4:e2b`<br>
+
 
 ### [OpenFang](https://github.com/RightNow-AI/openfang) - Agent OS
 

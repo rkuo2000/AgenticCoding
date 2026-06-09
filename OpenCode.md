@@ -55,15 +55,16 @@ opencode web
         "baseURL": "http://127.0.0.1:11434/v1"
       },
       "models": {
-        "gemma4-31b-ctx64k:latest": {
-          "name": "gemma4-31b-ctx64k:latest",
+        "gemma4-31b-64k:latest": {
+          "name": "Gemma4:31B (ctx=64K)",
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
           "tools": true,
           "reasoning": true
         }
       }
     }
   },
-  "model": "ollama/gemma4-31b-ctx64k:latest",
+  "model": "ollama/gemma4-31b-64k:latest",
   "mcp": {
     "freecad": {
       "type": "local",

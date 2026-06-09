@@ -62,6 +62,7 @@
 
 ---
 ### [LTspice simulation（類比電路模擬）](https://github.com/rkuo2000/AgenticCoding/tree/main/ltspice-sim)
+`LTspice`<br>
 
 ---
 ### [Navbot-CAD (兩腿輪機器人）](https://github.com/rkuo2000/AgenticCoding/tree/main/robot-cad)

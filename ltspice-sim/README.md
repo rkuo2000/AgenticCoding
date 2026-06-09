@@ -1,5 +1,5 @@
 ## LTspice Simulation
-`LTsice`<br>
+`LTspice`<br>
 
 [LTspice 下載](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html)<br>
 [LTspice-MCP server](https://lobehub.com/mcp/cognitohazard-ltspice-mcp)<br>

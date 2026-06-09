@@ -121,7 +121,7 @@
 sudo npm install -g openclaw@latest
 
 openclaw onboard --install-daemon
-openclaw -h
+openclaw dashboard
 ```
 
 ### [Open-LLM-VTuber](https://github.com/Open-LLM-VTuber/Open-LLM-VTuber) - VTuber AI Assistant

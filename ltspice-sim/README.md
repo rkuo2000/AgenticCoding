@@ -20,6 +20,6 @@ unzip [ltspice_demo_circuit_archive.zip](https://www.analog.com/media/en/simulat
 
 #### Prompt
 ```
-run ltpsice simulation on ./ltpsice_demo_circuit/600.asc and provide the result
+run ltspice simulation on ./ltspice_demo_circuit/600.asc and provide the result
 ```
 ![](https://github.com/rkuo2000/AgenticCoding/blob/main/ltspice-sim/LTspice_simulation.png?raw=true)

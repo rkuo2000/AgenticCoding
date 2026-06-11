@@ -6,7 +6,7 @@
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
-nvm install 25
+nvm install 26
 
 node -v
 npm -v
@@ -18,7 +18,7 @@ curl -fsSL https://opencode.ai/install | bash
 
 ---
 ### Windows
-Download [NodeJS .msi](https://nodejs.org/dist/v25.9.0/node-v25.9.0-x64.msi)<br>
+Download [NodeJS .msi](https://nodejs.org/dist/v26.3.0/node-v26.3.0-x64.msi)<br>
 Open Powershell with adminstrator(管理員權限)<br>
 ```
 Powershell> Set-ExecutionPolicy RemoteSigned
@@ -55,8 +55,8 @@ opencode web
         "baseURL": "http://127.0.0.1:11434/v1"
       },
       "models": {
-        "gemma4-31b-64k:latest": {
-          "name": "Gemma4:31B (ctx=64K)",
+        "gemma4:e2b": {
+          "name": "Gemma4:E2B",
           "modalities": { "input": ["text", "image"], "output": ["text"] },
           "tools": true,
           "reasoning": true
@@ -64,7 +64,7 @@ opencode web
       }
     }
   },
-  "model": "ollama/gemma4-31b-64k:latest",
+  "model": "ollama/gemma4:e2b",
   "mcp": {
     "freecad": {
       "type": "local",

@@ -6,27 +6,16 @@
 **Blog**: [OpenClaw (Clawdbot) Architecture: Engineering Reliable and Controllable AI Agents](https://vertu.com/ai-tools/openclaw-clawdbot-architecture-engineering-reliable-and-controllable-ai-agents/)<br>
 
 ---
-### install node & npm
-```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-nvm install node
-```
-
-* `node -v`
-v25.9.0
-
-* `npm -v`
-v 11.12.1
-
----
 ### OpenClaw setup
 
 #### install [OpenClaw](https://github.com/openclaw/openclaw)
-1. `sudo npm install -g openclaw@latest`
-2. `openclaw -v`
-3. `openclaw onboard --install-daemon`
-4. `openclaw gateway restart`
-5. open browser `http://127.0.0.1:18789`
+```
+npm install -g openclaw@latest
+openclaw -v
+openclaw onboard --install-daemon
+openclaw gateway restart
+opencalw dashboard
+```
 
 [.openclaw/openclaw.json](https://github.com/rkuo2000/AgenticCoding/blob/main/openclaw.json)<br>
 

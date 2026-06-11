@@ -12,6 +12,8 @@
 ```
 npm install -g openclaw@latest
 openclaw -v
+```
+```
 openclaw onboard --install-daemon
 openclaw gateway restart
 opencalw dashboard

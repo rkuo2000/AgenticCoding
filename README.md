@@ -1,9 +1,9 @@
 # Agentic Coding
 
 ## Overview
-* [AI-brief](https://rkuo2000.github.io/AI-course/lecture/2025/09/01/AI-Brief.html)
-* [AI-Hardwares](https://rkuo2000.github.io/AI-course/lecture/2025/09/01/AI-Hardwares.html)
-* [Agent-intro](https://rkuo2000.github.io/AI-course/lecture/2025/09/15/Agent.html)
+* [AI-brief](https://rkuo2000.github.io/AI-course/lecture/2026/06/01/AI-Brief.html)
+* [AI-Hardwares](https://rkuo2000.github.io/AI-course/lecture/2026/06/01/AI-Hardwares.html)
+* [Agent-intro](https://rkuo2000.github.io/AI-course/lecture/2026/06/08/Agent.html)
   
 **Paper**: [Vibe Coding vs Agentic Coding](https://arxiv.org/html/2505.19443v1)<br>
 <img width="50%" height="50%" src="https://arxiv.org/html/2505.19443v1/x3.png">

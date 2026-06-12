@@ -159,12 +159,14 @@ hermes dashboard
 hermes-desktop
 hermes
 ```
+#### ollama launch
 `ollama launch hermes`<br>
-```
-ollama launch hermes-desktop --model gemma4:e2b
-```
+`ollama launch hermes-desktop --model gemma4:e2b`<br>
+
+#### Hermes Desktop
 [![](https://markdown-videos-api.jorgenkh.no/youtube/iE974yYzmrU)](https://youtu.be/iE974yYzmrU)
 
+---
 ### [OpenFang](https://github.com/RightNow-AI/openfang) - Agent OS
 ```
 curl -fsSL https://openfang.sh/install | sh

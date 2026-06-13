@@ -49,10 +49,10 @@ npm i -g opencode-ai@latest
 ---
 ## Examples
 
-### [AgentCoding examples](https://github.com/rkuo2000/AgenticCoding/tree/main/agent-examples)
+### [Agent-basic](https://github.com/rkuo2000/AgenticCoding/tree/main/agent-examples)
 
 ---
-### [AI Stock 台灣股票分析師](https://github.com/rkuo2000/AgenticCoding/tree/main/ai-stock)
+### [AI-Stock（台灣股票分析）](https://github.com/rkuo2000/AgenticCoding/tree/main/ai-stock)
 
 ---
 ### [Financial-Report（社區財報）](https://github.com/rkuo2000/AgenticCoding/tree/main/financial-report)

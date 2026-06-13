@@ -137,12 +137,36 @@ openclaw dashboard
 
 ---
 ### [Open-LLM-VTuber](https://github.com/Open-LLM-VTuber/Open-LLM-VTuber) - VTuber AI Assistant
+![](https://github.com/rkuo2000/AI-course/blob/main/assets/images/Open-LLM-VTuber.png?raw=true)
+
+#### Download [Release v1.2.1-en](https://pub-17317087be374bc68161ac63de2022a5.r2.dev/v1.2.1/Open-LLM-VTuber-v1.2.1-en.zip)
 ```
-python -m venv .venv
-git clone https://github.com/Open-LLM-VTuber/Open-LLM-VTuber
-cd Open-LLM-VTuber
+cd ~/Downloads
+unzip Open-LLM-VTuber-v1.2.1-en.zip
+mv Open-LLM-VTuber-v1.2.1-en Open-LLM-VTuber
+mv Open-LLM-VTuber ..
+cd ~/Open-LLM-VTuber
+```
+
+#### modify ollama_llm in conf.yaml
+```
+      llm_provider: 'ollama_llm'
+      ollama_llm:
+        base_url: 'http://localhost:11434/v1'
+        model: 'gemma4-it-128k:e2b'
+        temperature: 1.0 # value between 0 to 2
+        # seconds to keep the model in memory after inactivity.
+        # set to -1 to keep the model in memory forever (even after exiting open llm vtuber)
+        keep_alive: -1
+        unload_at_exit: True # unload the model from memory at exit
+```
+
+#### upgrade edge-tts
+```
 uv sync
-uv run --active run_server.py
+source .venv/bin/activate
+uv pip install edge-tts --upgrade
+python run_server.py
 ```
 
 ---
@@ -171,6 +195,9 @@ hermes dashboard
 hermes desktop
 ```
 [![](https://markdown-videos-api.jorgenkh.no/youtube/iE974yYzmrU)](https://youtu.be/iE974yYzmrU)
+
+#### Hermes + [JARVIS](https://github.com/eadmin2/jarvis_ai)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/pfsGO14eTe4)](https://youtu.be/pfsGO14eTe4)
 
 ---
 ### [OpenFang](https://github.com/RightNow-AI/openfang) - Agent OS

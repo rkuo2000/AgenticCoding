@@ -55,8 +55,8 @@ npm i -g opencode-ai@latest
 ### [AI Stock 台灣股票分析師](https://github.com/rkuo2000/AgenticCoding/tree/main/ai-stock)
 
 ---
-### [Finance Report 社區財報](https://github.com/rkuo2000/AgenticCoding/tree/main/finance-report)
-`模型：Nemotron-3`<br>
+### [Financial-Report（社區財報）](https://github.com/rkuo2000/AgenticCoding/tree/main/financial-report)
+`模型：Nemotron-3` `技能：SKILL.md`<br>
 
 ---
 ### [Depth-Camera (深度相機)](https://github.com/rkuo2000/AgenticCoding/tree/main/depth-camera)

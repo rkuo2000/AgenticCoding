@@ -34,13 +34,12 @@
 ---
 ## Agentic IDEs
 
-### [Claude-Code](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
+* [Claude-Code](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
+* [Codex](https://github.com/openai/codex) - OpenAI AI Coding Partner
+* [AntiGravity](https://antigravity.google/) - Google Agentic Development Platform
+* [OpenCode](https://github.com/anomalyco/opencode) - AI Coding Agent
 
-### [Codex](https://github.com/openai/codex) - OpenAI AI Coding Partner
-
-### [AntiGravity](https://antigravity.google/) - Google Agentic Development Platform
-
-### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md) - AI Coding Agent
+### [OpenCode](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md)  [Docs](https://opencode.ai/docs/zh-tw/)
 ```
 npm i -g opencode-ai@latest
 ```
@@ -56,8 +55,12 @@ npm i -g opencode-ai@latest
 ### [AI Stock 台灣股票分析師](https://github.com/rkuo2000/AgenticCoding/tree/main/ai-stock)
 
 ---
+### [Finance Report 社區財報](https://github.com/rkuo2000/AgenticCoding/tree/main/finance-report)
+`模型：Nemotron-3`<br>
+
+---
 ### [Depth-Camera (深度相機)](https://github.com/rkuo2000/AgenticCoding/tree/main/depth-camera)
-`模型:Depth-Anything-V2`<br>
+`模型：Depth-Anything-V2`<br>
 
 ---
 ### [PMSM-Current-Control (永磁同步馬達之電流控制)](https://github.com/rkuo2000/AgenticCoding/tree/main/pmsm-sim)

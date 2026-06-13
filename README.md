@@ -48,7 +48,7 @@ npm i -g opencode-ai@latest
 `ollama launch opencode`<br>
 
 ---
-## Use-Cases
+## Examples
 
 ### [AgentCoding examples](https://github.com/rkuo2000/AgenticCoding/tree/main/agent-examples)
 
@@ -127,14 +127,12 @@ sudo npm install -g openclaw@latest
 ```
 ```
 openclaw onboard --install-daemon
-```
-```
 openclaw dashboard
-openclaw
 ```
 
 `ollama launch openclaw --model gemma4:e2b`<br>
 
+---
 ### [Open-LLM-VTuber](https://github.com/Open-LLM-VTuber/Open-LLM-VTuber) - VTuber AI Assistant
 ```
 python -m venv .venv
@@ -148,22 +146,27 @@ uv run --active run_server.py
 ## AI Agents
 
 ### [Hermes-Agent](https://github.com/nousresearch/hermes-agent) - AI Agents
+#### Linux / macOS / WSL2 / Android (Termux)
 ```
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 ```
+#### Windows <Powershell>
+```
+iex (irm https://hermes-agent.nousresearch.com/install.ps1) 
+```
+#### Herems setup / dashboard
 ```
 hermes setup
-```
-```
 hermes dashboard
-hermes-desktop
-hermes
 ```
 #### ollama launch
 `ollama launch hermes`<br>
 `ollama launch hermes-desktop --model gemma4:e2b`<br>
 
 #### Hermes Desktop
+```
+hermes desktop
+```
 [![](https://markdown-videos-api.jorgenkh.no/youtube/iE974yYzmrU)](https://youtu.be/iE974yYzmrU)
 
 ---

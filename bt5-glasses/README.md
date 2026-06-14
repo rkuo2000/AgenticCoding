@@ -64,5 +64,18 @@ Listening for events on /dev/inpu/event25...
 Touch/Key Pressed: KEY_VOLUMEUP
 Touch/Key Pressed: KEY_VOLUMEUP
 
+---
+## Agentic Glasses
+
+### LMM-VTuber
+![](https://raw.githubusercontent.com/rkuo2000/Jetson/refs/heads/main/assets/Open_LLM_VTuber.png)
+
+### Hermes + JARVIS
+![](https://github.com/rkuo2000/Jetson/blob/main/assets/Hermes_JARVIS.png?raw=true)
+
+---
+### [AI虛擬人（Live2D 語音助理）](https://github.com/YuriCrystal/ai-avatar-bot)
+![](https://github.com/rkuo2000/Jetson/blob/main/assets/AI_Avatar.png?raw=true)
+
 
 

@@ -194,7 +194,7 @@ hermes dashboard
 ```
 hermes desktop
 ```
-[![](https://markdown-videos-api.jorgenkh.no/youtube/iE974yYzmrU)](https://youtu.be/iE974yYzmrU)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/-EivK7vpOXY)](https://youtu.be/-EivK7vpOXY)
 
 #### Hermes + [JARVIS](https://github.com/eadmin2/jarvis_ai)
 [![](https://markdown-videos-api.jorgenkh.no/youtube/pfsGO14eTe4)](https://youtu.be/pfsGO14eTe4)

@@ -87,6 +87,12 @@ npm i -g opencode-ai@latest
 [FreeCAD MCP](https://github.com/neka-nat/freecad-mcp)<br>
 
 ---
+### [Floor-Planner（平面圖設計）](https://github.com/rkuo2000/AgenticCoding/tree/main/floor-planner)
+`OpenCode` `Gemini-2.5-Flash`<br>
+
+OpenCode 安裝: `npm i -g opencode-ai@latest` <br>
+
+---
 ### [Interior-Design (室內設計)](https://github.com/rkuo2000/AgenticCoding/tree/main/interior-design)
 `Krita` `模型:Z-Image Turbo`
 

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SmartDesign - 專業室內設計 CAD 渲染系統</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+        body { font-family: 'Noto+Sans+TC', sans-serif; background-color: #e2e8f0; margin: 0; padding: 0; overscroll-behavior: none; overflow: hidden; }
+        .canvas-bg { background-color: #cbd5e1; }
+        .wall-outer { stroke: #1e293b; stroke-width: 6; fill: #ffffff; }
+        .wall-outer-render { stroke: #0f172a; stroke-width: 7; fill: url(#wood-floor); filter: url(#wall-shadow); }
+        .wall-inner-struct { stroke: #334155; stroke-width: 4; fill: #ffffff; cursor: move; }
+        .wall-inner-render { stroke: #0f172a; stroke-width: 5; fill: #475569; filter: url(#wall-shadow); cursor: move; }
+        .wall-end-cap { stroke: #1e293b; stroke-width: 1.5; }
+        .pillar { fill: #0f172a; stroke: #000; stroke-width: 1; cursor: move; }
+        .pillar-render { fill: #1e293b; stroke: #0f172a; stroke-width: 1.5; filter: url(#soft-shadow); cursor: move; }
+        .door-arc-prof { stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 4; fill: none; }
+        .door-leaf-prof { stroke: #334155; stroke-width: 3; fill: none; }
+        .door-leaf-render { stroke: #78350f; stroke-width: 3.5; fill: none; }
+        .window-frame { stroke: #0ea5e9; stroke-width: 6; cursor: move; }
+        .window-frame-render { stroke: #38bdf8; stroke-width: 7; filter: url(#soft-shadow); cursor: move; }
+        .sliding-pane { fill: #ffffff; stroke: #64748b; stroke-width: 1.5; }
+        .furniture { fill: #f8fafc; stroke: #64748b; stroke-width: 1.5; cursor: move; transition: filter 0.2s; }
+        .cabinet-hatch { stroke: #cbd5e1; stroke-width: 1; pointer-events: none; }
+        .furniture-dimmed { opacity: 0.15; filter: grayscale(1); pointer-events: none; }
+        .interact-box { fill: transparent; cursor: move; }
+        .item-group:hover .furniture, .item-group:hover .wall-inner-struct { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); }
+        .selection-box { fill: rgba(59, 130, 246, 0.05); stroke: #3b82f6; stroke-width: 1.5; stroke-dasharray: 4; pointer-events: none; }
+        .rotate-handle { fill: #ffffff; stroke: #3b82f6; stroke-width: 2; cursor: crosshair; }
+        .rotate-line { stroke: #3b82f6; stroke-width: 1.5; pointer-events: none; }
+        .text-label { font-size: 11px; font-weight: 700; fill: #334155; text-anchor: middle; pointer-events: none; }
+        .text-label-render { font-size: 11px; font-weight: 800; fill: #ffffff; text-anchor: middle; pointer-events: none; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.8)); }
+        .dim-text { font-size: 10px; fill: #ef4444; font-weight: 600; text-anchor: middle; font-family: monospace; }
+        .dim-line { stroke: #ef4444; stroke-width: 1; }
+        #svg-canvas { transform-origin: top left; touch-action: none; }
+        .grab-cursor { cursor: grab !important; }
+        .grabbing-cursor { cursor: grabbing !important; }
+        #mobile-sidebar { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .sidebar-open { transform: translateX(0) !important; }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .palette-btn { @apply flex flex-col items-center justify-center p-2 border border-slate-200 rounded-lg bg-white hover:bg-indigo-50 hover:border-indigo-400 transition-all gap-1 text-[10px] font-bold text-slate-600 shadow-sm active:scale-95 cursor-grab; }
+        @media print { .no-print { display: none !important; } body { background: white; } }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+    <header class="bg-slate-900 h-14 flex justify-between items-center px-4 z-50 no-print shrink-0 shadow-md relative">
+        <div class="flex items-center gap-3">
+            <button onclick="toggleMobileSidebar()" class="md:hidden text-white p-1 hover:bg-slate-800 rounded">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <div class="bg-indigo-600 p-1.5 rounded-lg text-white shadow-lg shadow-indigo-500/20">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
+            <h1 class="text-lg font-black text-white tracking-tight">SmartDesign</h1>
+        </div>
+        
+        <div class="flex items-center gap-2">
+            <button onclick="saveToFile()" class="px-2.5 py-1 rounded bg-slate-700 text-white text-[10px] font-bold border border-slate-600 hover:bg-slate-600 transition-colors">儲存圖檔</button>
+            <button onclick="document.getElementById('load-file').click()" class="px-2.5 py-1 rounded bg-slate-700 text-white text-[10px] font-bold border border-slate-600 hover:bg-slate-600 transition-colors">讀取圖檔</button>
+            <div class="w-px h-4 bg-slate-700 mx-1"></div>
+            <button onclick="updateMode('furniture')" id="btn-mode-furn" class="px-2.5 py-1 rounded bg-indigo-600 text-white text-[10px] font-bold shadow">配置圖</button>
+            <button onclick="updateMode('construction')" id="btn-mode-cons" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-[10px] font-bold border border-slate-700">施工圖</button>
+            <button onclick="updateMode('render')" id="btn-mode-rend" class="px-2.5 py-1 rounded bg-slate-800 text-emerald-400 text-[10px] font-bold border border-slate-700">彩色預染</button>
+        </div>
+        <input type="file" id="load-file" class="hidden" accept=".json" onchange="loadFromFile(event)">
+
+    </header>
+
+    <div class="flex-1 flex overflow-hidden relative">
+        <div id="sidebar-overlay" onclick="toggleMobileSidebar()" class="md:hidden absolute inset-0 bg-slate-900/50 backdrop-blur-[2px] z-40 opacity-0 pointer-events-none transition-opacity"></div>
+
+        <aside id="mobile-sidebar" class="absolute md:relative inset-y-0 left-0 w-[280px] sm:w-80 bg-white border-r border-slate-200 flex flex-col z-50 -translate-x-full md:translate-x-0 shadow-2xl md:shadow-none">
+            <div class="flex border-b text-center sticky top-0 bg-white z-10 shrink-0">
+                <button onclick="switchTab('layout')" id="tab-layout" class="flex-1 py-3 text-[11px] font-black border-b-2 border-indigo-600 text-indigo-600 uppercase">空間</button>
+                <button onclick="switchTab('library')" id="tab-library" class="flex-1 py-3 text-[11px] font-black border-b-2 border-transparent text-slate-400 uppercase">圖庫</button>
+                <button onclick="switchTab('ai')" id="tab-ai" class="flex-1 py-3 text-[11px] font-black border-b-2 border-transparent text-slate-400 uppercase">AI</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto relative">
+                <div id="panel-layout" class="p-4 space-y-6">
+                    <section class="space-y-3">
+                        <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest block">空間形狀</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="updateShape('rect')" id="btn-rect" class="p-2 border-2 rounded-xl border-indigo-600 bg-indigo-50 text-indigo-700 font-bold text-[10px]">矩形</button>
+                            <button onclick="updateShape('l-shape')" id="btn-l-shape" class="p-2 border-2 border-slate-100 rounded-xl text-slate-500 font-bold text-[10px] hover:bg-slate-50">L 型</button>
+                        </div>
+                    </section>
+                    <section class="space-y-3">
+                        <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest block">主尺寸設定 (cm)</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="space-y-1"><span class="text-[9px] font-bold text-slate-400">總寬 W1</span><input type="number" id="num-w1" value="1100" class="w-full p-2 bg-slate-50 border rounded-lg text-sm font-mono outline-none focus:border-indigo-400"></div>
+                            <div class="space-y-1"><span class="text-[9px] font-bold text-slate-400">總深 H1</span><input type="number" id="num-h1" value="850" class="w-full p-2 bg-slate-50 border rounded-lg text-sm font-mono outline-none focus:border-indigo-400"></div>
+                        </div>
+                    </section>
+                    <section class="space-y-3 border-t pt-4">
+                        <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest block">底圖描繪輔助</label>
+                        <input type="file" id="ref-upload" accept="image/*" class="hidden" onchange="handleRefUpload(event)">
+                        <button onclick="document.getElementById('ref-upload').click()" class="w-full py-2 bg-white text-indigo-600 font-bold text-[10px] rounded-lg border border-indigo-200 hover:bg-indigo-50 shadow-sm">上傳平面底圖</button>
+                        <div id="ref-controls" class="hidden space-y-3 mt-3 p-3 bg-slate-50 rounded-lg border border-slate-100">
+                            <div class="flex justify-between text-[9px] font-bold text-slate-500"><span>透明度</span><span id="ref-opacity-val">50%</span></div>
+                            <input type="range" id="ref-opacity" min="0" max="100" value="50" oninput="updateRefImg()" class="w-full accent-indigo-600">
+                            <div class="grid grid-cols-2 gap-2 pt-2">
+                                <div><span class="text-[8px] text-slate-400">底圖寬</span><input type="number" id="ref-w" value="800" oninput="updateRefImg()" class="w-full p-1.5 border rounded text-xs font-mono"></div>
+                                <div><span class="text-[8px] text-slate-400">底圖高</span><input type="number" id="ref-h" value="600" oninput="updateRefImg()" class="w-full p-1.5 border rounded text-xs font-mono"></div>
+                            </div>
+                            <button onclick="removeRefImg()" class="w-full py-1.5 mt-2 bg-red-50 text-red-500 rounded text-[9px] font-bold">移除底圖</button>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="panel-library" class="hidden p-4 space-y-6">
+                    <p class="text-[9px] text-slate-400 text-center -mt-2">💡 提示：點擊按鈕即可加入畫布中央，或直接拖曳至畫面上。</p>
+                    <div>
+                        <h3 class="text-[10px] font-bold text-slate-500 mb-2 flex items-center gap-1"><span class="w-2 h-2 bg-slate-800 rounded-sm"></span> 結構 & 門窗</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button draggable="true" ondragstart="handleDragStart(event, 'wall')" onclick="addItem('wall')" class="palette-btn"><div class="w-6 h-2 bg-slate-700 rounded-sm"></div>牆體</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'pillar')" onclick="addItem('pillar')" class="palette-btn"><div class="w-3 h-3 bg-slate-900"></div>結構柱</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'door_single')" onclick="addItem('door_single')" class="palette-btn"><div class="w-5 h-5 border-l-2 border-b-2 border-slate-400 rounded-bl-full"></div>單開門</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'door_double_sliding')" onclick="addItem('door_double_sliding')" class="palette-btn"><div class="w-6 h-1 bg-slate-400"></div>雙拉門</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'door_unequal')" onclick="addItem('door_unequal')" class="palette-btn"><div class="w-6 h-5 flex"><div class="w-4 border-l-2 border-b-2 border-slate-400 rounded-bl-full"></div><div class="w-2 border-r-2 border-b-2 border-slate-400 rounded-br-full"></div></div>子母門</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'window_sliding')" onclick="addItem('window_sliding')" class="palette-btn"><div class="w-6 h-2 border-2 border-blue-400 bg-blue-50"></div>橫拉窗</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'window_fixed')" onclick="addItem('window_fixed')" class="palette-btn"><div class="w-6 h-2 border-2 border-blue-400 bg-white"><div class="w-full h-px bg-blue-200 mt-px"></div></div>固定窗</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-[10px] font-bold text-indigo-500 mb-2 flex items-center gap-1"><span class="w-2 h-2 bg-indigo-500 rounded-sm"></span> 辦公與收納 (X標記)</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button draggable="true" ondragstart="handleDragStart(event, 'office_desk')" onclick="addItem('office_desk')" class="palette-btn">💻 辦公桌</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'office_desk_l')" onclick="addItem('office_desk_l')" class="palette-btn">📐 L型桌</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'office_chair')" onclick="addItem('office_chair')" class="palette-btn">💺 辦公椅</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'conference_table')" onclick="addItem('conference_table')" class="palette-btn">🤝 會議桌</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'office_partition')" onclick="addItem('office_partition')" class="palette-btn">🚧 辦公隔屏</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'cabinet_wardrobe')" onclick="addItem('cabinet_wardrobe')" class="palette-btn">🚪 系統衣櫃</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'cabinet_shoe')" onclick="addItem('cabinet_shoe')" class="palette-btn">👞 鞋櫃/矮櫃</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'cabinet_display')" onclick="addItem('cabinet_display')" class="palette-btn">🗄️ 展示櫃</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'bookshelf')" onclick="addItem('bookshelf')" class="palette-btn">📚 書櫃</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-[10px] font-bold text-emerald-500 mb-2 flex items-center gap-1"><span class="w-2 h-2 bg-emerald-500 rounded-sm"></span> 生活家具</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button draggable="true" ondragstart="handleDragStart(event, 'bed')" onclick="addItem('bed')" class="palette-btn">🛌 雙人床</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'sofa')" onclick="addItem('sofa')" class="palette-btn">🛋️ 長沙發</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'armchair')" onclick="addItem('armchair')" class="palette-btn">🪑 單人椅</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'dining')" onclick="addItem('dining')" class="palette-btn">🍽️ 餐桌椅</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'cabinet_tv')" onclick="addItem('cabinet_tv')" class="palette-btn">📺 電視櫃</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'kitchen_set')" onclick="addItem('kitchen_set')" class="palette-btn">🍳 系統廚具</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'fridge')" onclick="addItem('fridge')" class="palette-btn">❄️ 冰箱</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'bath_set')" onclick="addItem('bath_set')" class="palette-btn">🛁 衛浴模組</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'piano')" onclick="addItem('piano')" class="palette-btn">🎹 鋼琴</button>
+                            <button draggable="true" ondragstart="handleDragStart(event, 'plant_office')" onclick="addItem('plant_office')" class="palette-btn">🪴 落地盆栽</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panel-ai" class="hidden p-5 space-y-6">
+                    <button onclick="askGemini()" class="w-full py-3 bg-indigo-600 text-white rounded-xl text-[11px] font-black shadow-lg hover:bg-indigo-700 transition-colors">✨ 執行 AI 空間評估</button>
+                    <div id="ai-loading" class="hidden text-center py-6"><div class="inline-block w-6 h-6 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div><p class="text-[9px] font-bold text-slate-400 mt-3 uppercase">Analyzing...</p></div>
+                    <div id="ai-response" class="hidden bg-slate-50 p-4 rounded-xl text-[10px] border border-slate-200 leading-relaxed text-slate-700"></div>
+                </div>
+            </div>
+        </aside>
+
+        <main id="main-viewport" class="flex-1 bg-slate-300 relative overflow-hidden flex flex-col">
+            <div class="absolute top-4 left-4 z-20 flex flex-col md:flex-row gap-1 bg-white/90 backdrop-blur p-1 rounded-lg shadow-md border border-slate-200">
+                <button onclick="changeZoom(0.1)" class="w-8 h-8 flex justify-center items-center text-slate-700 hover:bg-slate-200 rounded font-black text-lg transition-colors">+</button>
+                <div class="w-full h-px md:w-px md:h-8 bg-slate-300"></div>
+                <button onclick="changeZoom(-0.1)" class="w-8 h-8 flex justify-center items-center text-slate-700 hover:bg-slate-200 rounded font-black text-lg transition-colors">-</button>
+                <div class="w-full h-px md:w-px md:h-8 bg-slate-300"></div>
+                <button onclick="fitToViewport()" class="w-8 h-8 flex justify-center items-center text-[9px] font-black text-indigo-600 hover:bg-indigo-100 rounded transition-colors">FIT</button>
+            </div>
+
+            <div id="svg-scroller" class="w-full h-full overflow-hidden relative grab-cursor" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+                <div id="canvas-container" class="absolute" style="width: 3000px; height: 3000px;">
+                    <svg id="svg-canvas" width="3000" height="3000" style="position:absolute; top:0; left:0;" onmousedown="handleCanvasMouseDown(event)" onmousemove="handleCanvasMouseMove(event)" onmouseup="handleCanvasMouseUp(event)" onmouseleave="handleCanvasMouseUp(event)" ontouchstart="handleCanvasMouseDown(event)" ontouchmove="handleCanvasMouseMove(event)" ontouchend="handleCanvasMouseUp(event)">
+                        <defs>
+                            <pattern id="grid-pattern" width="50" height="50" patternUnits="userSpaceOnUse">
+                                <rect width="50" height="50" fill="#f8fafc" />
+                                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+                            </pattern>
+                            <pattern id="wood-floor" width="120" height="40" patternUnits="userSpaceOnUse">
+                                <rect width="120" height="40" fill="#f5e1d3" />
+                                <path d="M 0 0 h 120 M 0 20 h 120 M 0 40 h 120 M 40 0 v 20 M 80 20 v 20 M 120 0 v 20" fill="none" stroke="#d4b29c" stroke-width="0.8"/>
+                            </pattern>
+                            <pattern id="marble-tile" width="60" height="60" patternUnits="userSpaceOnUse">
+                                <rect width="60" height="60" fill="#f1f5f9" />
+                                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#cbd5e1" stroke-width="0.8"/>
+                            </pattern>
+                            <pattern id="hatch-pattern" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                                <line x1="0" y1="0" x2="0" y2="8" stroke="#cbd5e1" stroke-width="1.5" />
+                            </pattern>
+                            <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.2"/>
+                            </filter>
+                            <filter id="wall-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                                <feDropShadow dx="3" dy="5" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.3"/>
+                            </filter>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+                        <g id="layer-reference"></g>
+                        <g id="layer-walls"></g>
+                        <g id="layer-furniture"></g>
+                        <g id="layer-selection" class="hidden">
+                            <rect id="sel-box" class="selection-box" x="-3" y="-3" width="0" height="0" />
+                            <line id="sel-rot-line" class="rotate-line" x1="0" y1="-3" x2="0" y2="-30" />
+                            <circle id="sel-rot-handle" class="rotate-handle" cx="0" cy="-30" r="8" onmousedown="startRotate(event)" ontouchstart="startRotate(event)"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <div id="inspector-panel" class="absolute bottom-0 left-0 w-full md:top-4 md:bottom-auto md:left-auto md:right-4 md:w-64 bg-white rounded-t-2xl md:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.15)] md:shadow-2xl border border-slate-200 overflow-hidden hidden flex flex-col transition-transform z-30 pb-6 md:pb-0">
+                <div class="bg-slate-900 text-white p-3 flex justify-between items-center">
+                    <span id="prop-title" class="text-xs font-black tracking-widest uppercase truncate pr-2">屬性</span>
+                    <button onclick="clearSelection()" class="text-slate-400 hover:text-white transition-colors bg-slate-800 rounded p-1">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    </button>
+                </div>
+                <div class="p-4 space-y-3 overflow-y-auto max-h-[40vh] md:max-h-none">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">寬 W (cm)</label>
+                            <input type="number" id="prop-w" onchange="updateProp('w', this.value)" class="w-full p-2 border rounded-lg text-xs font-mono bg-slate-50 focus:border-indigo-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">深 H (cm)</label>
+                            <input type="number" id="prop-h" onchange="updateProp('h', this.value)" class="w-full p-2 border rounded-lg text-xs font-mono bg-slate-50 focus:border-indigo-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="text-[9px] font-bold text-indigo-500 uppercase">X 座標</label>
+                            <input type="number" id="prop-x" onchange="updateProp('x', this.value)" class="w-full p-2 border border-indigo-200 rounded-lg text-xs font-mono outline-none bg-indigo-50/50">
+                        </div>
+                        <div>
+                            <label class="text-[9px] font-bold text-indigo-500 uppercase">Y 座標</label>
+                            <input type="number" id="prop-y" onchange="updateProp('y', this.value)" class="w-full p-2 border border-indigo-200 rounded-lg text-xs font-mono outline-none bg-indigo-50/50">
+                        </div>
+                        <div class="col-span-2 flex items-end gap-2">
+                            <div class="flex-1">
+                                <label class="text-[9px] font-bold text-emerald-600 uppercase">角度 (Deg)</label>
+                                <input type="number" id="prop-rot" onchange="updateProp('rot', this.value)" class="w-full p-2 border border-emerald-200 rounded-lg text-xs font-mono outline-none bg-emerald-50/30">
+                            </div>
+                            <button onclick="rotateProp90()" class="px-3 py-2 h-[34px] bg-emerald-100 text-emerald-700 rounded-lg text-[10px] font-black hover:bg-emerald-200 transition-colors">+90°</button>
+                        </div>
+                    </div>
+                    
+                    <div id="prop-flip-container" class="hidden pt-2 border-t border-slate-100">
+                        <button onclick="flipSelected()" class="w-full py-2 bg-slate-100 text-slate-700 text-[10px] font-black rounded-lg hover:bg-slate-200">⇋ 左右反轉門扇</button>
+                    </div>
+
+                    <div class="flex gap-2 pt-2 border-t border-slate-100">
+                        <button onclick="duplicateSelected()" class="flex-1 py-2 bg-indigo-50 text-indigo-600 text-[10px] font-black rounded-lg hover:bg-indigo-100">複製</button>
+                        <button onclick="deleteSelected()" class="flex-1 py-2 bg-red-50 text-red-600 text-[10px] font-black rounded-lg hover:bg-red-100">刪除</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const apiKey = "";
+        
+        const state = { 
+            mode: 'furniture', 
+            zoom: 1.0,
+            snapToGrid: true,
+            gridSize: 10,
+            items: [],
+            selectedId: null,
+            shape: 'rect', w1: 1100, h1: 850,
+            refImg: { url: null, w: 800, h: 600, opacity: 0.5 },
+            interaction: { active: false, type: null, startX: 0, startY: 0, startItemX: 0, startItemY: 0, startScrollX: 0, startScrollY: 0 }
+        };
+
+        const catalog = {
+            wall: { w: 300, h: 15, name: '隔間牆' }, pillar: { w: 40, h: 40, name: '結構柱' },
+            door_single: { w: 90, h: 90, name: '單開門', flip: false }, door_unequal: { w: 120, h: 120, name: '子母門', flip: false },
+            door_double_sliding: { w: 160, h: 12, name: '雙拉門', rot: 0 },
+            window_sliding: { w: 150, h: 15, name: '橫拉窗' }, window_fixed: { w: 150, h: 10, name: '固定窗' },
+            office_desk: { w: 140, h: 70, name: '辦公桌' }, office_desk_l: { w: 160, h: 160, name: '主管桌' },
+            office_chair: { w: 60, h: 60, name: '辦公椅' }, conference_table: { w: 240, h: 100, name: '會議桌' },
+            office_partition: { w: 120, h: 5, name: '辦公隔屏' }, plant_office: { w: 50, h: 50, name: '植栽' },
+            bed: { w: 160, h: 200, name: '雙人床' }, sofa: { w: 240, h: 90, name: '長沙發' }, armchair: { w: 80, h: 80, name: '單人椅' },
+            dining: { w: 160, h: 90, name: '餐桌椅' }, fridge: { w: 70, h: 70, name: '電冰箱' }, bookshelf: { w: 120, h: 35, name: '書櫃' },
+            cabinet_wardrobe: { w: 180, h: 60, name: '系統衣櫃' }, cabinet_shoe: { w: 120, h: 35, name: '鞋櫃' }, 
+            cabinet_display: { w: 150, h: 40, name: '展示櫃' }, cabinet_tv: { w: 200, h: 45, name: '電視櫃' },
+            kitchen_set: { w: 240, h: 60, name: '系統廚具' }, bath_set: { w: 180, h: 180, name: '衛浴模組' }, piano: { w: 150, h: 150, name: '鋼琴' }
+        };
+
+        const draw = {
+            pillar: (x, y, s=40) => {
+                const isRender = state.mode === 'render';
+                const cls = isRender ? 'pillar-render' : 'pillar';
+                return `<rect x="${x-s/2}" y="${y-s/2}" width="${s}" height="${s}" class="${cls}" />`;
+            },
+            item: (i) => {
+                const isRender = state.mode === 'render';
+                const dimmed = (state.mode === 'construction' && !['wall', 'pillar', 'door_single', 'door_unequal', 'door_double_sliding', 'window_sliding', 'window_fixed', 'office_partition', 'cabinet_wardrobe', 'cabinet_shoe', 'cabinet_display', 'cabinet_tv'].includes(i.type)) ? 'furniture-dimmed' : '';
+                let sym = ""; const rot = `rotate(${i.rot||0}, ${i.w/2}, ${i.h/2}) scale(${i.flip?-1:1}, 1)`;
+                const filterAttr = isRender ? 'filter="url(#soft-shadow)"' : '';
+
+                if (i.type === 'wall') {
+                    const cls = isRender ? 'wall-inner-render' : 'wall-inner-struct';
+                    sym = `<rect width="${i.w}" height="${i.h}" class="${cls}" />`;
+                }
+                else if (i.type === 'pillar') {
+                    const cls = isRender ? 'pillar-render' : 'pillar';
+                    sym = `<rect width="${i.w}" height="${i.h}" class="${cls}" />`;
+                }
+                else if (i.type === 'door_single') {
+                    const leafCls = isRender ? 'door-leaf-render' : 'door-leaf-prof';
+                    sym = `<line x1="0" y1="0" x2="0" y2="15" class="wall-end-cap"/><line x1="${i.w}" y1="0" x2="${i.w}" y2="15" class="wall-end-cap"/><path d="M 0 0 Q 0 ${-i.w} ${i.w} ${-i.w}" class="door-arc-prof"/><line x1="0" y1="0" x2="0" y2="${-i.w}" class="${leafCls}"/>`;
+                }
+                else if (i.type === 'door_unequal') {
+                    const l=i.w*0.7, s=i.w*0.3;
+                    const leafCls = isRender ? 'door-leaf-render' : 'door-leaf-prof';
+                    sym = `<path d="M 0 0 Q 0 ${-l} ${l} ${-l}" class="door-arc-prof"/><line x1="0" y1="0" x2="0" y2="${-l}" class="${leafCls}"/><path d="M ${i.w} 0 Q ${i.w} ${-s} ${i.w-s} ${-s}" class="door-arc-prof"/><line x1="${i.w}" y1="0" x2="${i.w}" y2="${-s}" class="${leafCls}"/>`;
+                }
+                else if (i.type === 'door_double_sliding') {
+                    sym = `<line x1="0" y1="0" x2="0" y2="12" class="wall-end-cap"/><line x1="${i.w}" y1="0" x2="${i.w}" y2="12" class="wall-end-cap"/><rect x="0" y="2" width="${i.w*0.6}" height="3" class="sliding-pane" fill="${isRender ? '#78350f' : '#ffffff'}" /><rect x="${i.w*0.4}" y="5" width="${i.w*0.6}" height="3" class="sliding-pane" fill="${isRender ? '#78350f' : '#ffffff'}" />`;
+                }
+                else if (i.type === 'window_sliding') {
+                    const frameCls = isRender ? 'window-frame-render' : 'window-frame';
+                    sym = `<rect width="${i.w}" height="${i.h}" class="${frameCls}" /><rect x="0" y="${i.h*0.2}" width="${i.w*0.55}" height="${i.h*0.3}" class="sliding-pane" fill="#e0f2fe" /><rect x="${i.w*0.45}" y="${i.h*0.5}" width="${i.w*0.55}" height="${i.h*0.3}" class="sliding-pane" fill="#e0f2fe" />`;
+                }
+                else if (i.type === 'window_fixed') {
+                    const frameCls = isRender ? 'window-frame-render' : 'window-frame';
+                    sym = `<rect width="${i.w}" height="${i.h}" class="${frameCls}" /><line x1="0" y1="${i.h/2}" x2="${i.w}" y2="${i.h/2}" stroke="#fff" stroke-width="2"/>`;
+                }
+                else if (i.type.startsWith('cabinet_')) {
+                    const fillVal = isRender ? '#b45309' : '#f8fafc';
+                    const strokeVal = isRender ? '#78350f' : '#64748b';
+                    sym = `<rect width="${i.w}" height="${i.h}" fill="${fillVal}" stroke="${strokeVal}" stroke-width="1.5" /><line x1="0" y1="0" x2="${i.w}" y2="${i.h}" class="cabinet-hatch" stroke="${isRender ? '#d97706' : '#cbd5e1'}" /><line x1="${i.w}" y1="0" x2="0" y2="${i.h}" class="cabinet-hatch" stroke="${isRender ? '#d97706' : '#cbd5e1'}" /><text x="${i.w/2}" y="${i.h/2+4}" class="${isRender ? 'text-label-render' : 'text-label'}" opacity="0.8" style="font-size:7px">${i.name}</text>`;
+                }
+                else if (i.type === 'office_desk') {
+                    const deskColor = isRender ? '#fef3c7' : '#f8fafc';
+                    const borderStyle = isRender ? 'stroke="#b45309" stroke-width="2"' : 'stroke="#64748b" stroke-width="1.5"';
+                    sym = `<rect width="${i.w}" height="${i.h}" rx="3" fill="${deskColor}" ${borderStyle} /><rect x="5" y="5" width="${i.w-10}" height="${i.h-10}" fill="${isRender ? '#fffbeb' : '#f1f5f9'}" stroke="none"/><text x="${i.w/2}" y="${i.h/2+4}" class="${isRender ? 'text-label-render' : 'text-label'}" opacity="0.8">Desk</text>`;
+                }
+                else if (i.type === 'office_desk_l') {
+                    const deskColor = isRender ? '#fef3c7' : '#f8fafc';
+                    const borderStyle = isRender ? 'stroke="#b45309" stroke-width="2"' : 'stroke="#64748b" stroke-width="1.5"';
+                    sym = `<path d="M0,0 h${i.w} v60 h-${i.w-60} v${i.h-60} h-60 Z" fill="${deskColor}" ${borderStyle} /><text x="35" y="35" class="${isRender ? 'text-label-render' : 'text-label'}" opacity="0.8">L-Desk</text>`;
+                }
+                else if (i.type === 'office_chair') {
+                    const chairColor = isRender ? '#475569' : '#f8fafc';
+                    sym = `<circle cx="${i.w/2}" cy="${i.h/2}" r="${i.w/2-5}" fill="${chairColor}" stroke="#334155" stroke-width="1.5" /><path d="M5,${i.h/2} Q${i.w/2},0 ${i.w-5},${i.h/2}" fill="none" stroke="${isRender ? '#1e293b' : '#64748b'}" stroke-width="8" stroke-linecap="round"/>`;
+                }
+                else if (i.type === 'conference_table') {
+                    const tblColor = isRender ? '#d97706' : '#f8fafc';
+                    sym = `<rect width="${i.w}" height="${i.h}" rx="${i.h/2}" fill="${tblColor}" stroke="${isRender ? '#78350f' : '#64748b'}" stroke-width="1.5" /><text x="${i.w/2}" y="${i.h/2+4}" class="${isRender ? 'text-label-render' : 'text-label'}" opacity="0.8">Conference</text>`;
+                }
+                else if (i.type === 'office_partition') {
+                    sym = `<rect width="${i.w}" height="${i.h}" fill="${isRender ? '#475569' : '#94a3b8'}" stroke="#334155" stroke-width="1" />`;
+                }
+                else if (i.type === 'plant_office') {
+                    const leafColor = isRender ? '#22c55e' : '#dcfce7';
+                    const trunkColor = isRender ? '#15803d' : '#166534';
+                    sym = `<circle cx="${i.w/2}" cy="${i.h/2}" r="${i.w/2-2}" fill="${leafColor}" stroke="${trunkColor}" stroke-width="2"/><circle cx="${i.w/2}" cy="${i.h/2}" r="8" fill="${trunkColor}"/>`;
+                }
+                else if (i.type === 'bed') {
+                    const quiltColor = isRender ? '#3b82f6' : '#f8fafc';
+                    const frameColor = isRender ? '#78350f' : '#64748b';
+                    sym = `<rect width="${i.w}" height="${i.h}" rx="8" fill="${isRender ? '#e2e8f0' : '#f8fafc'}" stroke="${frameColor}" stroke-width="2" /><rect x="0" y="0" width="${i.w}" height="50" fill="${isRender ? '#94a3b8' : 'none'}" stroke="${frameColor}" stroke-width="1" /><rect x="10" y="10" width="${i.w/2-15}" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1"/><rect x="${i.w/2+5}" y="10" width="${i.w/2-15}" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1"/><rect x="5" y="55" width="${i.w-10}" height="${i.h-60}" rx="6" fill="${quiltColor}" stroke="none" />`;
+                }
+                else if (i.type === 'sofa') {
+                    const sofaColor = isRender ? '#475569' : '#f8fafc';
+                    sym = `<rect width="${i.w}" height="${i.h}" rx="5" fill="${sofaColor}" stroke="#334155" stroke-width="1.5" /><rect x="15" y="${i.h-25}" width="${i.w-30}" height="20" rx="3" fill="${isRender ? '#334155' : '#ffffff'}" stroke="#334155" />`;
+                }
+                else if (i.type === 'armchair') {
+                    const chairColor = isRender ? '#64748b' : '#f8fafc';
+                    sym = `<rect width="${i.w}" height="${i.h}" rx="12" fill="${chairColor}" stroke="#334155" stroke-width="1.5" /><rect x="5" y="5" width="${i.w-10}" height="15" rx="4" fill="none" stroke="#cbd5e1"/>`;
+                }
+                else if (i.type === 'dining') {
+                    const tblColor = isRender ? '#d97706' : '#f8fafc';
+                    sym = `<rect width="${i.w}" height="${i.h}" rx="5" fill="${tblColor}" stroke="#334155" stroke-width="1.5" /><circle cx="${i.w/2}" cy="${i.h/2}" r="15" fill="none" stroke="#94a3b8"/>`;
+                }
+                else if (i.type === 'kitchen_set') {
+                    const fillCol = isRender ? '#94a3b8' : '#f8fafc';
+                    sym = `<rect width="${i.w}" height="${i.h}" fill="${fillCol}" stroke="#475569" stroke-width="1.5" /><circle cx="${i.w-40}" cy="${i.h/2}" r="15" fill="none" stroke="#cbd5e1"/><rect x="20" y="10" width="60" height="${i.h-20}" fill="none" stroke="#cbd5e1"/>`;
+                }
+                else if (i.type === 'bath_set') {
+                    sym = `<rect width="${i.w}" height="${i.h}" fill="url(#marble-tile)" stroke="#94a3b8" stroke-width="2"/><rect x="10" y="10" width="60" height="40" rx="5" fill="#ffffff" stroke="#cbd5e1"/><circle cx="40" cy="30" r="12" fill="none" stroke="#94a3b8"/><ellipse cx="${i.w-40}" cy="50" rx="16" ry="24" fill="#ffffff" stroke="#94a3b8"/>`;
+                }
+                else if (i.type === 'piano') {
+                    const pianoColor = isRender ? '#0f172a' : '#f8fafc';
+                    sym = `<path d="M 0 0 h ${i.w} v 30 c 0 20 -20 ${i.h-30} -45 ${i.h-30} h -${i.w-45} Z" fill="${pianoColor}" stroke="#1e293b" stroke-width="1.5" /><rect x="5" y="5" width="${i.w-10}" height="15" fill="#ffffff" stroke="#666" stroke-width="0.5" />`;
+                }
+                else {
+                    sym = `<rect width="${i.w}" height="${i.h}" rx="5" class="furniture" /><text x="${i.w/2}" y="${i.h/2+4}" class="text-label" opacity="0.5">${i.name}</text>`;
+                }
+
+                const hit = `<rect width="${i.w}" height="${i.h}" class="interact-box" />`;
+                return `<g id="item-${i.id}" class="item-group ${dimmed}" transform="translate(${i.x}, ${i.y})" onmousedown="handleItemMouseDown(event, ${i.id})" ontouchstart="handleItemMouseDown(event, ${i.id})"><g transform="${rot}" ${filterAttr}>${sym}${hit}</g></g>`;
+            },
+            dim: (x1, y1, x2, y2, val, offset=40) => {
+                if (state.mode === 'furniture' || state.mode === 'render') return "";
+                const isH = y1 === y2;
+                return `<g><line x1="${x1}" y1="${isH ? y1-offset : y1}" x2="${x2}" y2="${isH ? y2-offset : y2}" class="dim-line" opacity="0.3"/><text x="${(x1+x2)/2}" y="${isH ? y1-offset-8 : (y1+y2)/2}" class="dim-text">${val} cm</text></g>`;
+            }
+        };
+
+        function initCanvas() {
+            const P = 1000;
+            state.items.push(
+                { id: 1, type: 'office_desk_l', w: 160, h: 160, name: '主管桌', x: P+100, y: P+100, rot: 0 },
+                { id: 2, type: 'cabinet_wardrobe', w: 180, h: 60, name: '系統櫃', x: P+400, y: P+100, rot: 0 },
+                { id: 3, type: 'sofa', w: 240, h: 90, name: '長沙發', x: P+150, y: P+450, rot: 0 },
+                { id: 4, type: 'plant_office', w: 50, h: 50, name: '綠植', x: P+100, y: P+600, rot: 0 }
+            );
+            render();
+            setTimeout(fitToViewport, 100);
+        }
+
+        function render() {
+            const { shape, w1, h1, refImg } = state;
+            const P = 1000; const W = w1, H = h1;
+            const isRender = state.mode === 'render';
+            
+            const refLayer = document.getElementById('layer-reference');
+            refLayer.innerHTML = refImg.url ? `<image href="${refImg.url}" x="${P}" y="${P}" width="${refImg.w}" height="${refImg.h}" opacity="${refImg.opacity}" pointer-events="none" />` : '';
+
+            let walls = "";
+            const lW2 = Math.round(W * 0.4), lH2 = Math.round(H * 0.4);
+            const path = (shape === 'rect') ? `M ${P} ${P} h ${W} v ${H} h -${W} Z` : `M ${P} ${P} h ${W} v ${H} h -${lW2} v -${lH2} h -${W-lW2} Z`;
+            const outerCls = isRender ? 'wall-outer-render' : 'wall-outer';
+            walls += `<path d="${path}" class="${outerCls}" />`;
+            
+            const pillarCls = isRender ? 'pillar-render' : 'pillar';
+            walls += `<rect x="${P-20}" y="${P-20}" width="40" height="40" class="${pillarCls}" />`;
+            walls += `<rect x="${P+W-20}" y="${P-20}" width="40" height="40" class="${pillarCls}" />`;
+            if(shape === 'rect') {
+                walls += `<rect x="${P-20}" y="${P+H-20}" width="40" height="40" class="${pillarCls}" />`;
+                walls += `<rect x="${P+W-20}" y="${P+H-20}" width="40" height="40" class="${pillarCls}" />`;
+            }
+            document.getElementById('layer-walls').innerHTML = walls;
+
+            let dims = "";
+            dims += draw.dim(P, P, P+W, P, W.toString(), 30);
+            dims += draw.dim(P-30, P, P-30, P+H, H.toString(), 0);
+            
+            let html = dims;
+            state.items.forEach(i => html += draw.item(i));
+            document.getElementById('layer-furniture').innerHTML = html;
+            
+            updateSelectionBox();
+            updateInspector();
+        }
+
+        function updateSelectionBox() {
+            const selLayer = document.getElementById('layer-selection');
+            if (!state.selectedId) { selLayer.classList.add('hidden'); return; }
+            const i = state.items.find(x => x.id === state.selectedId);
+            if (!i) return;
+
+            selLayer.classList.remove('hidden');
+            selLayer.setAttribute('transform', `translate(${i.x}, ${i.y}) rotate(${i.rot||0}, ${i.w/2}, ${i.h/2})`);
+            document.getElementById('sel-box').setAttribute('width', i.w+6);
+            document.getElementById('sel-box').setAttribute('height', i.h+6);
+            document.getElementById('sel-rot-line').setAttribute('x1', i.w/2); document.getElementById('sel-rot-line').setAttribute('x2', i.w/2);
+            document.getElementById('sel-rot-handle').setAttribute('cx', i.w/2);
+        }
+
+        function updateInspector() {
+            const panel = document.getElementById('inspector-panel');
+            if (!state.selectedId) { panel.classList.add('hidden'); return; }
+            const i = state.items.find(x => x.id === state.selectedId);
+            if (!i) return;
+
+            panel.classList.remove('hidden');
+            document.getElementById('prop-title').innerText = i.name;
+            document.getElementById('prop-w').value = i.w; document.getElementById('prop-h').value = i.h;
+            document.getElementById('prop-x').value = i.x; document.getElementById('prop-y').value = i.y;
+            document.getElementById('prop-rot').value = i.rot || 0;
+            document.getElementById('prop-flip-container').classList.toggle('hidden', !['door_single', 'door_unequal'].includes(i.type));
+        }
+
+        function getSVGPoint(evt) {
+            const svg = document.querySelector('#svg-canvas');
+            const pt = svg.createSVGPoint();
+            const e = (evt.touches && evt.touches.length) ? evt.touches[0] : evt;
+            pt.x = e.clientX; pt.y = e.clientY;
+            return pt.matrixTransform(svg.getScreenCTM().inverse());
+        }
+        function snap(val) { return state.snapToGrid ? Math.round(val / state.gridSize) * state.gridSize : val; }
+
+        function handleCanvasMouseDown(evt) {
+            if (evt.target.id === 'svg-canvas' || (evt.target.tagName === 'rect' && evt.target.width.baseVal.valueAsString === "100%")) {
+                clearSelection();
+                state.interaction.active = true; state.interaction.type = 'pan';
+                const e = (evt.touches && evt.touches.length) ? evt.touches[0] : evt;
+                state.interaction.startX = e.clientX; state.interaction.startY = e.clientY;
+                const scroller = document.getElementById('svg-scroller');
+                state.interaction.startScrollX = scroller.scrollLeft; state.interaction.startScrollY = scroller.scrollTop;
+                scroller.classList.add('grabbing-cursor');
+            }
+        }
+
+        function handleItemMouseDown(evt, id) {
+            if (state.mode === 'construction' && !evt.target.closest('.wall-inner-struct')) return;
+            evt.stopPropagation();
+            state.selectedId = id; state.interaction.active = true; state.interaction.type = 'move';
+            const pt = getSVGPoint(evt), i = state.items.find(x => x.id === id);
+            state.interaction.startX = pt.x; state.interaction.startY = pt.y;
+            state.interaction.startItemX = i.x; state.interaction.startItemY = i.y;
+            render();
+        }
+
+        function startRotate(evt) {
+            evt.stopPropagation(); if(!state.selectedId) return;
+            const i = state.items.find(x => x.id === state.selectedId);
+            state.interaction.active = true; state.interaction.type = 'rotate';
+            state.interaction.centerX = i.x + i.w/2; state.interaction.centerY = i.y + i.h/2;
+        }
+
+        function handleCanvasMouseMove(evt) {
+            if (!state.interaction.active) return;
+            if (evt.cancelable) evt.preventDefault();
+            const pt = getSVGPoint(evt);
+            const e = (evt.touches && evt.touches.length) ? evt.touches[0] : evt;
+
+            if (state.interaction.type === 'pan') {
+                const scroller = document.getElementById('svg-scroller');
+                scroller.scrollLeft = state.interaction.startScrollX - (e.clientX - state.interaction.startX);
+                scroller.scrollTop = state.interaction.startScrollY - (e.clientY - state.interaction.startY);
+            } else if (state.interaction.type === 'move' && state.selectedId) {
+                const i = state.items.find(x => x.id === state.selectedId);
+                i.x = snap(state.interaction.startItemX + (pt.x - state.interaction.startX));
+                i.y = snap(state.interaction.startItemY + (pt.y - state.interaction.startY));
+                render();
+            } else if (state.interaction.type === 'rotate' && state.selectedId) {
+                const i = state.items.find(x => x.id === state.selectedId);
+                let angle = Math.atan2(pt.y - state.interaction.centerY, pt.x - state.interaction.centerX) * 180 / Math.PI + 90;
+                if (angle < 0) angle += 360;
+                if (state.snapToGrid) angle = Math.round(angle / 15) * 15;
+                i.rot = angle; render();
+            }
+        }
+
+        function handleCanvasMouseUp() {
+            if (state.interaction.active) {
+                state.interaction.active = false;
+                if (state.interaction.type === 'pan') document.getElementById('svg-scroller').classList.remove('grabbing-cursor');
+                state.interaction.type = null; updateInspector();
+            }
+        }
+
+        function handleDragStart(evt, type) { evt.dataTransfer.setData('text/plain', type); evt.dataTransfer.effectAllowed = 'copy'; }
+        function handleDragOver(evt) { evt.preventDefault(); evt.dataTransfer.dropEffect = 'copy'; }
+        function handleDrop(evt) {
+            evt.preventDefault(); const type = evt.dataTransfer.getData('text/plain');
+            if(type) {
+                const svg = document.querySelector('#svg-canvas'), pt = svg.createSVGPoint();
+                pt.x = evt.clientX; pt.y = evt.clientY; const svgPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+                addItem(type, svgPt.x, svgPt.y);
+            }
+        }
+
+        function addItem(type, dropX = null, dropY = null) {
+            const defs = catalog[type]; if (!defs) return;
+            let cx, cy;
+            if (dropX !== null && dropY !== null) {
+                cx = snap(dropX - defs.w/2); cy = snap(dropY - defs.h/2);
+            } else {
+                const scroller = document.getElementById('svg-scroller');
+                cx = snap(scroller.scrollLeft + scroller.clientWidth/2 / state.zoom - defs.w/2);
+                cy = snap(scroller.scrollTop + scroller.clientHeight/2 / state.zoom - defs.h/2);
+            }
+            const newId = Date.now();
+            state.items.push({ id: newId, type, ...defs, x: cx, y: cy, rot: 0 });
+            state.selectedId = newId; render();
+            if(window.innerWidth < 768 && dropX === null) toggleMobileSidebar(); 
+        }
+
+        function switchTab(tab) {
+            ['layout', 'library', 'ai'].forEach(t => {
+                document.getElementById(`panel-${t}`).classList.toggle('hidden', t !== tab);
+                const btn = document.getElementById(`tab-${t}`);
+                if(t===tab) { btn.classList.add('border-indigo-600', 'text-indigo-600'); btn.classList.remove('border-transparent', 'text-slate-400'); }
+                else { btn.classList.remove('border-indigo-600', 'text-indigo-600'); btn.classList.add('border-transparent', 'text-slate-400'); }
+            });
+        }
+        function toggleMobileSidebar() { 
+            const sb = document.getElementById('mobile-sidebar'), ov = document.getElementById('sidebar-overlay');
+            const isOpen = sb.classList.toggle('sidebar-open');
+            ov.style.opacity = isOpen ? '1' : '0'; ov.style.pointerEvents = isOpen ? 'auto' : 'none'; 
+        }
+
+        function clearSelection() { state.selectedId = null; render(); }
+        function updateProp(key, val) { const i = state.items.find(x => x.id === state.selectedId); if(i) { i[key] = parseInt(val) || 0; render(); } }
+        function rotateProp90() { const i = state.items.find(x => x.id === state.selectedId); if(i) { i.rot = ((i.rot || 0) + 90) % 360; render(); } }
+        function flipSelected() { const i = state.items.find(x => x.id === state.selectedId); if(i && i.flip !== undefined) { i.flip = !i.flip; render(); } }
+        function deleteSelected() { state.items = state.items.filter(x => x.id !== state.selectedId); clearSelection(); }
+        function duplicateSelected() { const i = state.items.find(x => x.id === state.selectedId); if(i) { const newId = Date.now(); state.items.push({...i, id: newId, x: snap(i.x + 50), y: snap(i.y + 50)}); state.selectedId = newId; render(); } }
+
+        function toggleSnap() { state.snapToGrid = document.getElementById('snap-toggle').checked; }
+        function updateMode(m) { 
+            state.mode = m; 
+            document.getElementById('btn-mode-furn').className = `px-2.5 py-1 rounded text-[10px] font-bold border ${m==='furniture'?'bg-indigo-600 text-white border-indigo-600':'bg-slate-800 text-slate-300 border-slate-700'}`;
+            document.getElementById('btn-mode-cons').className = `px-2.5 py-1 rounded text-[10px] font-bold border ${m==='construction'?'bg-indigo-600 text-white border-indigo-600':'bg-slate-800 text-slate-300 border-slate-700'}`;
+            document.getElementById('btn-mode-rend').className = `px-2.5 py-1 rounded text-[10px] font-bold border ${m==='render'?'bg-emerald-600 text-white border-emerald-600':'bg-slate-800 text-emerald-400 border-slate-700'}`;
+            clearSelection(); render(); 
+        }
+        function updateShape(s) {
+            state.shape = s;
+            document.getElementById('btn-rect').className = `p-2 border-2 rounded-xl font-bold text-[10px] ${s==='rect'?'border-indigo-600 bg-indigo-50 text-indigo-700':'border-slate-100 text-slate-500 hover:bg-slate-50'}`;
+            document.getElementById('btn-l-shape').className = `p-2 border-2 rounded-xl font-bold text-[10px] ${s==='l-shape'?'border-indigo-600 bg-indigo-50 text-indigo-700':'border-slate-100 text-slate-500 hover:bg-slate-50'}`;
+            render();
+        }
+
+        function changeZoom(d) { state.zoom = Math.max(0.1, Math.min(3, state.zoom + d)); applyZoom(); }
+        function fitToViewport() {
+            const scroller = document.getElementById('svg-scroller');
+            const vW = scroller.clientWidth, vH = scroller.clientHeight;
+            const pW = state.w1 + 200, pH = state.h1 + 200;
+            state.zoom = Math.max(0.2, Math.min((vW-60) / pW, (vH-60) / pH, 1.1)); applyZoom();
+            scroller.scrollLeft = 1000 - (vW / state.zoom - state.w1)/2; scroller.scrollTop = 1000 - (vH / state.zoom - state.h1)/2;
+        }
+        function applyZoom() { document.getElementById('svg-canvas').style.transform = `scale(${state.zoom})`; }
+
+        function handleRefUpload(e) { const file = e.target.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (event) => { state.refImg.url = event.target.result; document.getElementById('ref-controls').classList.remove('hidden'); render(); }; reader.readAsDataURL(file); }
+        function updateRefImg() { state.refImg.opacity = document.getElementById('ref-opacity').value / 100; state.refImg.w = parseInt(document.getElementById('ref-w').value)||800; state.refImg.h = parseInt(document.getElementById('ref-h').value)||600; document.getElementById('ref-opacity-val').innerText = `${Math.round(state.refImg.opacity * 100)}%`; render(); }
+        function removeRefImg() { state.refImg.url = null; document.getElementById('ref-controls').classList.add('hidden'); render(); }
+
+        function saveToFile() {
+            const dataStr = JSON.stringify(state, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `floor_plan_${new Date().getTime()}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function loadFromFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const importedState = JSON.parse(e.target.result);
+                    Object.assign(state, importedState);
+                    // Re-sync DOM elements for w1/h1/etc if necessary, though render handles it from state
+                    document.getElementById('num-w1').value = state.w1;
+                    document.getElementById('num-h1').value = state.h1;
+                    if (state.refImg.url) {
+                        document.getElementById('ref-controls').classList.remove('hidden');
+                    } else {
+                        document.getElementById('ref-controls').classList.add('hidden');
+                    }
+                    render();
+                } catch (err) {
+                    alert("載入失敗：無效的 JSON 檔案");
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        async function askGemini() {
+            const modal = document.getElementById('ai-modal'), content = document.getElementById('ai-content'), loading = document.getElementById('ai-loading');
+            modal.classList.remove('hidden'); loading.classList.remove('hidden'); content.classList.add('hidden');
+            try {
+                const prompt = `您是專業建築師。畫面有 ${state.items.length} 個物件。請提供動線建議與優化策略 (繁體中文，約150字)。`;
+                const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }) });
+                const data = await resp.json(); content.innerText = data.candidates[0].content.parts[0].text;
+                loading.classList.add('hidden'); content.classList.remove('hidden');
+            } catch(e) { content.innerText = "連線逾時，請檢查網路。"; loading.classList.add('hidden'); content.classList.remove('hidden'); }
+        }
+
+        document.getElementById('num-w1').oninput = (e) => { state.w1 = parseInt(e.target.value) || 0; render(); };
+        document.getElementById('num-h1').oninput = (e) => { state.h1 = parseInt(e.target.value) || 0; render(); };
+
+        window.onload = initCanvas;
+    </script>
+</body>
+</html>

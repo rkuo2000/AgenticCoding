@@ -48,8 +48,8 @@ floorplan, 請創一個有三個房間有客廳及廚房的平面圖
 ```
 
 ```
-![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floorplan_debug_001.png?raw=true)
-![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floorplan_debug_002.png?raw=true)
+![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floorplanner_debug_001.png?raw=true)
+![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floorplanner_debug_002.png?raw=true)
 #### Prompt:
 ```
 ```

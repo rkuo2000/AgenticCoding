@@ -38,3 +38,5 @@ study floor_planner.html and create its mcp server, then add it to opencode
 floorplan, 請創一個有三個房間有客廳及廚房的平面圖
 ```
 ![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floorplan_mcp_create.png?raw=true)
+
+[floorplan_by_mcp.json](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floorplan_by_mcp.json) <br>

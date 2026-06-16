@@ -12,13 +12,16 @@ study floor_planner.html and add save/load file function with buttons
 
 ---
 ### Create MCP Server
-modified by model: `Nemotron-3-Ultra`<br>
 
 #### Prompt:
 ```
 study floor_planner.html and create its mcp server, then add it to opencode
 ```
-![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floor_planner.png?raw=true)
+#### Prompt:
+```
+如何啟動floorplan mcp server
+```
+![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floorplan_mcp_enable.png?raw=true)
 
 ---
 #### Prompt:

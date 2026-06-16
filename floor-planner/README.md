@@ -1,5 +1,6 @@
 ## Floor Planner
 `opencode` `Gemini-2.5-Flash` <br>
+<br>
 ![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floor_planner.png?raw=true)
 
 ### Add Functions
@@ -45,14 +46,8 @@ floorplan, 請創一個有三個房間有客廳及廚房的平面圖
 ### Floorplan debug
 
 #### Prompt:
-```
-
-```
 ![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floorplanner_debug_001.png?raw=true)
 ![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floorplanner_debug_002.png?raw=true)
-#### Prompt:
-```
-```
 
 #### 用瀏覽器重新開啟 [floor_planner.html](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floor_planner.html)
 ![](https://github.com/rkuo2000/AgenticCoding/blob/main/floor-planner/floorplan_by_mcp.png?raw=true)

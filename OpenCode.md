@@ -31,7 +31,8 @@ npm -v
 ```
 #### install OpenCode
 ```
-curl -fsSL https://opencode.ai/install | bash
+npm config set allow-scripts=opencode-ai --location=user
+npm install -g opencode-ai@latest
 ```
 
 ---

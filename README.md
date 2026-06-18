@@ -6,7 +6,7 @@
 * [Agent-intro](https://rkuo2000.github.io/AI-course/lecture/2026/06/08/Agent.html)
 
 ---
-## AI Engineering
+### AI Engineering
 * 第一代：Prompt Engineering（2022-2024）
 * 第二代：[Context Engineering](https://ihower.tw/blog/12817-context-engineering)（2025）
 * 第三代：[Harness Engineering](https://hackmd.io/@BASHCAT/SkQEW0F2bg)（2026）
@@ -21,7 +21,7 @@
 [![](https://markdown-videos-api.jorgenkh.no/youtube/R6fZR_9kmIw)](https://youtu.be/R6fZR_9kmIw)
 
 ---
-## Local LLMs
+### Local LLMs
 
 ### [Ollama](https://github.com/rkuo2000/AgenticCoding/blob/main/Ollama.md) ~  [*library*](https://ollama.com/library)
 `ollama launch opencode`<br>
@@ -29,7 +29,7 @@
 ### [LM Studio](https://github.com/rkuo2000/AgenticCoding/blob/main/LMstudio.md) ~  [*models*](https://lmstudio.ai/models)
 
 ---
-## Agentic IDEs
+### Agentic IDEs
 
 * [Claude-Code](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
 * [Codex](https://github.com/openai/codex) - OpenAI AI Coding Partner

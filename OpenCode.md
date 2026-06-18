@@ -32,10 +32,10 @@ npm config set allow-scripts=opencode-ai --location=user
 npm install -g opencode-ai@latest
 ```
 
-#### to project directory
+#### to working directory
 ```
 cd ~/AgenticCoding
-opencode web
+opencode
 ```
 
 #### configuration

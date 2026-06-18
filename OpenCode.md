@@ -1,6 +1,8 @@
 ## [OpenCode](https://github.com/anomalyco/opencode)
 
-### Windows
+### NodeJS 
+
+#### Windows
 Download [NodeJS .msi](https://nodejs.org/dist/v26.3.0/node-v26.3.0-x64.msi)<br>
 Open Powershell with adminstrator(管理員權限)<br>
 ```
@@ -12,15 +14,8 @@ Powershell> node -v
 Powershell> npm -v
 ```
 
-#### install opencode
-```
-Powershell> npm i -g opencode-ai@latest
-Powershell> opencode -v
-```
-
 ---
-### Linux
-#### install NodeJS
+#### Linux
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
@@ -29,14 +24,15 @@ nvm install 26
 node -v
 npm -v
 ```
-#### install OpenCode
+
+---
+### OpenCode 
 ```
 npm config set allow-scripts=opencode-ai --location=user
 npm install -g opencode-ai@latest
 ```
 
----
-### to project directory
+#### to project directory
 ```
 cd ~/AgenticCoding
 opencode web

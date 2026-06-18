@@ -48,10 +48,15 @@
 
 ---
 ### [AI-Stock（台灣股票分析）](https://github.com/rkuo2000/AgenticCoding/tree/main/ai-stock)
+`LLM：Gemina-2.5-Flash`<br>
 
 ---
 ### [Financial-Report（社區財報）](https://github.com/rkuo2000/AgenticCoding/tree/main/financial-report)
-`模型：Nemotron-3` `技能：SKILL.md`<br>
+`LLM：Gemina-2.5-Flash`<br>
+
+---
+### [Floor-Planner（平面設計圖）](https://github.com/rkuo2000/AgenticCoding/tree/main/floor-planner)
+`LLM：Gemina-2.5-Flash`<br>
 
 ---
 ### [Depth-Camera (深度相機)](https://github.com/rkuo2000/AgenticCoding/tree/main/depth-camera)
@@ -80,12 +85,6 @@
 
 [FreeCAD 下載](https://www.freecad.org/downloads.php)<br>
 [FreeCAD MCP](https://github.com/neka-nat/freecad-mcp)<br>
-
----
-### [Floor-Planner（平面圖設計）](https://github.com/rkuo2000/AgenticCoding/tree/main/floor-planner)
-`OpenCode` `Gemini-2.5-Flash`<br>
-
-OpenCode 安裝: `npm i -g opencode-ai@latest` <br>
 
 ---
 ### [Interior-Design (室內設計)](https://github.com/rkuo2000/AgenticCoding/tree/main/interior-design)

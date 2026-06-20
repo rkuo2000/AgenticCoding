@@ -1,4 +1,4 @@
-## Game design using Godot
+## Game design using Godot (遊戲設計)
 `Godot` <br>
 
 ### Create Godot-MCP server

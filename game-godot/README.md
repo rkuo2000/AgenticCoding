@@ -22,4 +22,4 @@ enable Godot-MCP server<br>
 ```
 Godot, 請設計一個青蛙過街的遊戲（青蛙，浮木，車輛，車道等都需要貼圖）
 ```
-![]()
+![](https://github.com/rkuo2000/AgenticCoding/blob/main/game-godot/Design_Game_with_Godot-MCP.png?raw=true)

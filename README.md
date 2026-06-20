@@ -112,11 +112,11 @@
 [MCP for Unity](https://github.com/CoplayDev/unity-mcp)<br>
 
 ---
-### [GoDot-Game (2D遊戲)](https://github.com/rkuo2000/AgenticCoding/tree/main/godot-game)
+### [Game-GoDot (遊戲設計)](https://github.com/rkuo2000/AgenticCoding/tree/main/game-godot)
 `GoDot`<br>
 
 [GoDot 下載](https://godotengine.org/download/)<br>
-[GoDot MCP](https://github.com/Coding-Solo/godot-mcp)<br>
+[GoDot MCP](https://github.com/ee0pdt/Godot-MCP/)<br>
 
 ---
 ## AI Assistant

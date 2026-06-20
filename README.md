@@ -122,15 +122,6 @@
 ## AI Assistant
 
 ### [OpenClaw](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenClaw.md) - Personal AI Assistant
-```
-sudo npm install -g openclaw@latest
-```
-```
-openclaw onboard --install-daemon
-openclaw dashboard
-```
-
-`ollama launch openclaw --model gemma4:e2b`<br>
 
 ---
 ### [Open-LLM-VTuber](https://github.com/Open-LLM-VTuber/Open-LLM-VTuber) - VTuber AI Assistant

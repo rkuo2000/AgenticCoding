@@ -39,7 +39,7 @@ opencode
 ```
 
 #### configuration
-[~/.opencode/[opencode.json](https://github.com/rkuo2000/AgenticCoding/blob/main/opencode.json)<br>
+[~/.opencode/opencode.json](https://github.com/rkuo2000/AgenticCoding/blob/main/opencode.json)<br>
 ```
 {
   "$schema": "https://opencode.ai/config.json",

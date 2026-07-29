@@ -26,7 +26,7 @@ npx skills install earthtojake/text-to-cad
 
 ---
 ### Plugins
-`opencode` <br>
+`opencode` (/models **Big Pickle** OpenCode Zen) <br>
 ```
 plugin install marketplace add earthtojake/text-to-cad
 plugin add cad@text-to-cad

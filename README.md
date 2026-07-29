@@ -105,6 +105,12 @@
 [BlenderMCP](https://github.com/ahujasid/blender-mcp)<br>
 
 ---
+### [Text-to-CAD (文生機構)](https://github.com/rkuo2000/AgenticCoding/tree/main/text-to-cad)
+`Skills`<br>
+
+[text-to-cad](https://github.com/earthtojake/text-to-cad)
+
+---
 ### [Unity-Gym (3D場景)](https://github.com/rkuo2000/AgenticCoding/tree/main/unity-gym)
 `Unity`<br>
 

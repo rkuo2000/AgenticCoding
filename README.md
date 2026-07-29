@@ -10,6 +10,7 @@
 * 第一代：Prompt Engineering（2022-2024）
 * 第二代：[Context Engineering](https://ihower.tw/blog/12817-context-engineering)（2025）
 * 第三代：[Harness Engineering](https://hackmd.io/@BASHCAT/SkQEW0F2bg)（2026）
+* 第四代：[Loop Engineering](https://addyosmani.com/blog/loop-engineering/) (2026)
 
 #### Anthropic Claude Code：三代理 Harness 架構
 | Agent	    | 角色   |	 職責                          |
@@ -20,6 +21,16 @@
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/R6fZR_9kmIw)](https://youtu.be/R6fZR_9kmIw)
 
+#### [迴圈工程](https://www.bnext.com.tw/article/91246/loop-engineering-from-prompting-to-designing-ai-coding-loops)
+迴圈工程，就是把「負責提示 AI 的你」這個角色，換成一套替你做這件事的系統。<br>
+每個迴圈無論簡單或複雜，都走同樣五個階段：探索（Discover）→ 規劃（Plan）→ 執行（Execute）→ 驗證（Verify）→ 迭代（Iterate）。通過驗證就交付，沒通過就再跑一次。 <br>
+* 自動化（Automations）：迴圈的心跳
+* Worktree（工作樹）：讓多個代理平行跑而不打架
+* 技能（Skills）：把專案知識寫一次，每次都讀
+* 外掛與連接器（Connectors）：讓迴圈碰得到你真正在用的工具
+* 子代理（Sub-agents）：讓驗證誠實，檢查的人絕不是動手的人
+* 記憶（Memory）：讓迴圈跨次不失憶
+  
 ---
 ### Local LLMs
 

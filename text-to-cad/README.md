@@ -34,6 +34,10 @@ plugin add cad@text-to-cad
 
 ---
 ## [Benchmarks](https://github.com/earthtojake/text-to-cad/tree/main#-benchmarks)
+[step_viewer.sh](https://github.com/rkuo2000/AgenticCoding/blob/main/text-to-cad/step_viewer.sh)
+```
+npm --prefix /home/rkuo/.agents/skills/cad-viewer/scripts/viewer run serve -- --host 127.0.0.1
+```
 
 ### 2. Circular Flange With Bolt-Hole Pattern
 #### Prompt

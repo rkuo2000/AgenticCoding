@@ -1,0 +1,48 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      },
+      "models": {
+        "Frontis-MA1-35B-256K:latest": {
+          "name": "Frontis-MA1:35B (ctx=256k)",
+          "tools": true,
+          "reasoning": true
+        }
+      }
+    }
+  },
+  "model": "Frontis-MA1-35B-128K:latest",
+  "mcp": {
+    "freecad": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "freecad-mcp"
+      ]
+    },
+    "blender": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "blender-mcp"
+      ]
+    },
+    "unityMCP": {
+      "type": "remote",
+      "url": "http://127.0.0.1:8080/mcp",
+      "enabled": true
+    },
+    "godot": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "godot-mcp"
+      ]
+    }
+  }
+}

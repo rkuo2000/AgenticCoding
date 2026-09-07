@@ -4,7 +4,7 @@
 [Blender 下載](https://www.blender.org/download/)<br>
 [Blender MCP](https://github.com/ahujasid/blender-mcp)<br>
 
-### 安裝
+### Installation
 #### To install Blender 
 ```
 snap install blender --classic
@@ -24,10 +24,10 @@ uvx blender-mcp install-addon
 In Blender's 3D viewport, press N → open the MCP for Blender tab → click Start MCP Server. 
 
 ---
-### OpenCode
+### Codex
 ```
 cd ~/AgenticCoding/architect-blender
-opencode
+codex
 ```
 
 ---
@@ -38,5 +38,7 @@ read ./Simple-House-Design.webp, then build it in Blender
 ##### floorplan_3_bedroom.webp
 ![](https://raw.githubusercontent.com/rkuo2000/AgenticCoding/refs/heads/main/architect-blender/Simple-House-Design.webp)
 
-
+---
+#### Blender
+![](https://github.com/rkuo2000/AgenticCoding/blob/main/architect-blender/Simple_House_Design.png)
 

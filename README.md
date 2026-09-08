@@ -22,7 +22,6 @@
 
 * [Claude-Code](https://github.com/anthropics/claude-code) - Anthropic AI Coding IDE
 * [Codex](https://github.com/openai/codex) - OpenAI AI Coding Partner
-* [AntiGravity](https://antigravity.google/) - Google Agentic Development Platform
 * [OpenCode](https://github.com/anomalyco/opencode) - AI Coding Agent
 
 ### [OpenCode 安裝](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenCode.md)
@@ -114,11 +113,8 @@
 [GoDot MCP](https://github.com/ee0pdt/Godot-MCP/)<br>
 
 ---
-## AI Assistant
+## Personal Assistants
 
-### [OpenClaw](https://github.com/rkuo2000/AgenticCoding/blob/main/OpenClaw.md) - Personal AI Assistant
-
----
 ### [Open-LLM-VTuber](https://github.com/Open-LLM-VTuber/Open-LLM-VTuber) - VTuber AI Assistant
 ![](https://github.com/rkuo2000/AI-course/blob/main/assets/images/Open-LLM-VTuber.png?raw=true)
 
@@ -153,10 +149,20 @@ python run_server.py
 ```
 
 ---
-## AI Agents
+### OpenClaw
+Your assistant, on your devices, in your chats<br>
+#### Code: [https://github.com/openclaw/openclaw](https://github.com/openclaw/openclaw)
+![](https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-banner-dark.png)
 
-### [Hermes-Agent](https://github.com/nousresearch/hermes-agent) - AI Agents
-#### Linux / macOS / WSL2 / Android (Termux)
+---
+### NemoClaw
+NVIDIA NemoClaw: Reference Stack for Sandboxed AI Agents in OpenShell<br>
+#### Code: [https://github.com/NVIDIA/NemoClaw](https://github.com/NVIDIA/NemoClaw)
+
+
+---
+### Hermes-Agent
+#### Code: [https://github.com/nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent)
 ```
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 ```
@@ -182,11 +188,4 @@ hermes desktop
 #### Hermes + [JARVIS](https://github.com/eadmin2/jarvis_ai)
 [![](https://markdown-videos-api.jorgenkh.no/youtube/pfsGO14eTe4)](https://youtu.be/pfsGO14eTe4)
 
----
-### [OpenFang](https://github.com/RightNow-AI/openfang) - Agent OS
-```
-curl -fsSL https://openfang.sh/install | sh
-openfang init
-openfang start
-# Dashboard live at http://localhost:4200
-```
+

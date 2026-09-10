@@ -32,18 +32,18 @@ ollama [command]: <br>
 
 ---
 ### Ex.
-* download model : `ollama pull gemma4:e2b`
+* download model : `ollama pull gemma4:e4b`
 * list models : `ollama list`
-* remove a model : `ollama rm gemma4:e2b`
-* run  model : `ollama run gemma4:e2b --verbose`
+* remove a model : `ollama rm gemma4:e4b`
+* run  model : `ollama run gemma4:e4b --verbose`
 * check process : `ollama ps`
 ```
 NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL              
-gemma4:e2b    7fbdbf8f5e45    1.9 GB    100% GPU     32768      4 minutes from now 
+gemma4:e4b    7fbdbf8f5e45    1.9 GB    100% GPU     32768      4 minutes from now 
 ```
 
 #### Launch IDEs
-`ollama launch opencode --model gemma4:e2b` <br>
+`ollama launch opencode --model gemma4:e4b` <br>
 `ollama launch claude` <br>
 `ollama launch hermes` <br>
 
@@ -53,15 +53,12 @@ gemma4:e2b    7fbdbf8f5e45    1.9 GB    100% GPU     32768      4 minutes from n
 #### adjust Context-Size
 edit Modelfile <br>
 ```
-FROM gemma4:e2b
+FROM gemma4:e4b
 PARAMETER num_ctx 131072
 ```
 
 #### create a model
-`ollama create gemma4-128K:e2b -f Modelfile`<br>
+`ollama create gemma4-128K:e4b -f Modelfile`<br>
 
 #### run a model
-`ollama run gemm4-128k:e2b --verbose`<br>
-
-ollama ps
-```
+`ollama run gemm4-128k:e4b --verbose`<br>

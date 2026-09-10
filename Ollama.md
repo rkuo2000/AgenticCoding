@@ -42,9 +42,10 @@ NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL
 gemma4:e2b    7fbdbf8f5e45    1.9 GB    100% GPU     32768      4 minutes from now 
 ```
 
-#### Launch from IDE
+#### Launch IDEs
 `ollama launch opencode --model gemma4:e2b` <br>
 `ollama launch claude` <br>
+`ollama launch hermes` <br>
 
 ---
 ### Create Model

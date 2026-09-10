@@ -32,11 +32,11 @@ ollama [command]: <br>
 
 ---
 ### Ex.
-* download model: `ollama pull gemma4:e2b`
-* list models: `ollama list`
-* remove a model: `ollama rm gemma4:e2b`
-* run  model: `ollama run gemma4:e2b --verbose`
-* check process: `ollama ps`
+* download model : `ollama pull gemma4:e2b`
+* list models : `ollama list`
+* remove a model : `ollama rm gemma4:e2b`
+* run  model : `ollama run gemma4:e2b --verbose`
+* check process : `ollama ps`
 ```
 NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL              
 gemma4:e2b    7fbdbf8f5e45    1.9 GB    100% GPU     32768      4 minutes from now 

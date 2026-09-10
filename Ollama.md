@@ -5,33 +5,26 @@
 
 ---
 ### Commands
-#### help : `ollama -h`
+#### help:  `ollama -h`
 
-#### version : `ollama -v`
+#### version: `ollama -v`
 
-#### download model : `ollama pull gemma4:e2b`
+#### download model: `ollama pull gemma4:e2b`
 
-#### list installed models
-`ollama list` <br>
+#### list models: `ollama list`
 
-#### Remove a model
-`ollama rm gemma4:e2b` <br>
+#### remove a model: `ollama rm gemma4:e2b`
 
-#### check the running models 
-`ollama ps` <br>
+#### run  model: `ollama run gemma4:e2b --verbose`
+
+#### check process: `ollama ps`
 ```
 NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL              
 gemma4:e2b    7fbdbf8f5e45    1.9 GB    100% GPU     32768      4 minutes from now 
 ```
 
----
-### Run Model
-#### Terminal #2: run a model
-`ollama run gemma4:e2b --verbose` <br>
-
 #### Launch from IDE
 `ollama launch opencode --model gemma4:e2b` <br>
-
 `ollama launch claude` <br>
 
 ---

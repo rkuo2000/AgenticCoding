@@ -4,20 +4,39 @@
 `curl -fsSL https://ollama.com/install.sh | sh` <br>
 
 ---
-### Commands
-#### help:  `ollama -h`
+### Flags
+`ollama -h` (help)<br>
 
-#### version: `ollama -v`
+`ollama -v` (version)<br>
 
-#### download model: `ollama pull gemma4:e2b`
+---
+### Command
+ollama [command]: <br>
+```
+  serve        Start Ollama
+  create       Create a model
+  show         Show information for a model
+  run          Run a model
+  stop         Stop a running model
+  pull         Pull a model from a registry
+  push         Push a model to a registry
+  signin       Sign in to ollama.com
+  signout      Sign out from ollama.com
+  list         List models
+  ps           List running models
+  cp           Copy a model
+  rm           Remove a model
+  launch       Launch the Ollama menu or an integration
+  help         Help about any command
+```
 
-#### list models: `ollama list`
-
-#### remove a model: `ollama rm gemma4:e2b`
-
-#### run  model: `ollama run gemma4:e2b --verbose`
-
-#### check process: `ollama ps`
+---
+### Ex.
+* download model: `ollama pull gemma4:e2b`
+* list models: `ollama list`
+* remove a model: `ollama rm gemma4:e2b`
+* run  model: `ollama run gemma4:e2b --verbose`
+* check process: `ollama ps`
 ```
 NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL              
 gemma4:e2b    7fbdbf8f5e45    1.9 GB    100% GPU     32768      4 minutes from now 

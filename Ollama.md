@@ -5,14 +5,11 @@
 
 ---
 ### Commands
-#### help
-`ollama -h`
+#### help : `ollama -h`
 
-#### check version
-`ollama -v`<br>
+#### version : `ollama -v`
 
-#### download a model
-`ollama pull gemma4:e2b` <br>
+#### download model : `ollama pull gemma4:e2b`
 
 #### list installed models
 `ollama list` <br>

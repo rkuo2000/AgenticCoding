@@ -3,14 +3,14 @@
 ### Install
 `curl -fsSL https://ollama.com/install.sh | sh` <br>
 
-#### Commands
-```
-ollama -h
-ollama -v
-```
-
 ---
 ### Commands
+#### help
+`ollama -h`
+
+#### check version
+`ollama -v`<br>
+
 #### download a model
 `ollama pull gemma4:e2b` <br>
 

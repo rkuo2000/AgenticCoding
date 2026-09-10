@@ -1,63 +1,57 @@
 ## [Ollama](https://github.com/ollama/ollama)
 
 ### Install
-```
-curl -fsSL https://ollama.com/install.sh | sh
-```
-#### commands
+`curl -fsSL https://ollama.com/install.sh | sh` <br>
+
+#### Commands
 ```
 ollama -h
 ollama -v
 ```
 
-### Serve
-Terminal #1: serve & monitor<br>
-```
-ollama serve
-```
-####
-
+---
 ### Commands
+#### download a model
+`ollama pull gemma4:e2b` <br>
+
+#### list installed models
+`ollama list` <br>
+
+#### Remove a model
+`ollama rm gemma4:e2b` <br>
+
+#### check the running models 
+`ollama ps` <br>
 ```
-ollama pull gemma4:e2b
-ollama list
+NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL              
+gemma4:e2b    7fbdbf8f5e45    1.9 GB    100% GPU     32768      4 minutes from now 
 ```
 
-```
-ollama rm gemma4:e2b
-```
-
-### Run
+---
+### Run Model
 #### Terminal #2: run a model
+`ollama run gemma4:e2b --verbose` <br>
+
+#### Launch from IDE
+`ollama launch opencode --model gemma4:e2b` <br>
+
+`ollama launch claude` <br>
+
+---
+### Create Model
+
+#### adjust Context-Size
+edit Modelfile <br>
 ```
-ollama run gemma4:e2b
+FROM gemma4:e2b
+PARAMETER num_ctx 131072
 ```
 
-#### Launch an IDE
-```
-ollama launch opencode
-```
-```
-ollama launch claude
-```
-```
-ollama launch openclaw
-```
+#### create a model
+`ollama create gemma4-128K:e2b -f Modelfile`<br>
 
-### change Context-Size
-```
-ollama run gemma4:e2b
-```
-#### save a new model
-```
-/set parameter num_ctx 131072
-/save gemma4-e2b-128k
-```
-#### run it
-```
-ollama run gemm4-e2b-128k
-```
-#### check process
-```
+#### run a model
+`ollama run gemm4-128k:e2b --verbose`<br>
+
 ollama ps
 ```
